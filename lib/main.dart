@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logerex_partner/common_widgets/main/MainScreen.dart';
 import 'package:logerex_partner/themes/themes_constants.dart';
 import 'package:logerex_partner/themes/themes_manager.dart';
 
@@ -40,7 +41,7 @@ class MyApp extends HookConsumerWidget {
         Locale('en', ''),
         Locale('th', ''),
       ],
-      // home: const MyHomePage(),
+      home: const MainScreen(),
     );
   }
 }
