@@ -1,6 +1,6 @@
-# logerex_partner
+# Logerex Partner
 
-A new Flutter project.
+A mobile application for Logerex Partners.
 
 ## Getting Started
 
