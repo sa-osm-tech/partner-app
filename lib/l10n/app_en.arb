@@ -1,0 +1,14 @@
+{
+  "language": "English",
+  "@language": {
+    "description": "Selected language"
+  },
+  "home_title": "Logerex Partner App",
+  "@home_title": {
+    "description": "Title of home page appbar"
+  },
+  "home_press_me": "You have press this butto this many times",
+  "@home_press_me": {
+    "description": "Label of a number of times the button has been pressed"
+  }
+}
