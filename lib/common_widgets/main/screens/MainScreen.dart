@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:logerex_partner/common_widgets/main/MainState.dart';
+import 'package:logerex_partner/common_widgets/main/states/MainState.dart';
 import 'package:logerex_partner/features/home/screens/HomeTab.dart';
 import 'package:logerex_partner/features/notification/screens/NotificationsTab.dart';
 import 'package:logerex_partner/features/order_pool/screens/OrderPoolTab.dart';
