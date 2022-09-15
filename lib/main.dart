@@ -11,7 +11,7 @@ Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initApp();
   FlutterNativeSplash.remove();
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 Future initApp() async {
