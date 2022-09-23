@@ -21,4 +21,6 @@ class LGColors {
   static const Color white = Color(0xFFFFFFFF);
   static const Color cream = Color(0xFFF2DAC4);
   static const Color yellow = Color(0xFFEEA058);
+  static const Color transparent = Colors.transparent;
+  static const Color dropshadow = Color.fromRGBO(0, 0, 0, 0.2);
 }

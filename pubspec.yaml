@@ -43,6 +43,7 @@ dependencies:
   flutter_hooks: ^0.18.5+1
   freezed_annotation: ^2.1.0
   state_notifier: ^0.7.2+1
+  font_awesome_flutter: ^10.2.1
 
 dev_dependencies:
   flutter_test:
@@ -104,5 +105,24 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Montserrat-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Montserrat-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Montserrat-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Montserrat-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Montserrat-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Montserrat-ExtraBold.ttf
+          weight: 800
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
