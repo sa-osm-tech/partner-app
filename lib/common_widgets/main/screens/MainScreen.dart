@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/main/states/MainState.dart';
 import 'package:logerex_partner/features/home/screens/HomeTab.dart';
-import 'package:logerex_partner/features/notification/screens/NotificationsTab.dart';
-import 'package:logerex_partner/features/order_pool/screens/OrderPoolTab.dart';
-import 'package:logerex_partner/features/orders/screens/OrdersTab.dart';
-import 'package:logerex_partner/features/profile/screens/ProfileTab.dart';
+import 'package:logerex_partner/features/inbox/screens/InboxTab.dart';
+import 'package:logerex_partner/features/more/screens/MoreTab.dart';
+import 'package:logerex_partner/features/payment/screens/PaymentTab.dart';
+import 'package:logerex_partner/themes/LGColors.dart';
+import 'package:logerex_partner/themes/LGTextStyle.dart';
+import 'package:logerex_partner/utils/LGLocalization.dart';
 
 class MainScreen extends HookConsumerWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -19,10 +22,9 @@ class MainScreen extends HookConsumerWidget {
     final tabsList = useMemoized(
       () => [
         const HomeTab(),
-        const NotificationsTab(),
-        const OrderPoolTab(),
-        const OrdersTab(),
-        const ProfileTab(),
+        const PaymentTab(),
+        const InboxTab(),
+        const MoreTab(),
       ],
     );
 
@@ -39,31 +41,54 @@ class MainScreen extends HookConsumerWidget {
         children: tabsList,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
+        selectedLabelStyle: LGTextStyle.p3.highlight_100,
+        unselectedLabelStyle: LGTextStyle.p3.gray_50,
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: const Padding(
+              padding: EdgeInsets.all(4.0),
+              child: FaIcon(
+                FontAwesomeIcons.house,
+                size: 24,
+              ),
+            ),
+            label: context.l10n.main_bottom_tabbar_home,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
+            icon: const Padding(
+              padding: EdgeInsets.all(4.0),
+              child: FaIcon(
+                FontAwesomeIcons.creditCard,
+                size: 24,
+              ),
+            ),
+            label: context.l10n.main_bottom_tabbar_payment,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.explore),
-            label: 'Order Pool',
+            icon: const Padding(
+              padding: EdgeInsets.all(4.0),
+              child: FaIcon(
+                FontAwesomeIcons.inbox,
+                size: 24,
+              ),
+            ),
+            label: context.l10n.main_bottom_tabbar_inbox,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'My Orders',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Profile',
+            icon: const Padding(
+              padding: EdgeInsets.all(4.0),
+              child: FaIcon(
+                FontAwesomeIcons.ellipsis,
+                size: 24,
+              ),
+            ),
+            label: context.l10n.main_bottom_tabbar_more,
           ),
         ],
         currentIndex: state.selectedTabIdx,
-        selectedItemColor: const Color.fromARGB(255, 255, 85, 13),
-        unselectedItemColor: const Color(0xff6F7C90),
+        selectedItemColor: LGColors.highlight_100,
+        unselectedItemColor: LGColors.gray_50,
+        backgroundColor: LGColors.ternary_100,
         showSelectedLabels: true,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,

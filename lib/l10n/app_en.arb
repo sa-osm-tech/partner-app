@@ -43,12 +43,20 @@
   "@login_forgot_password_back": {
     "description": "Back to sign in modal button"
   },
-  "home_title": "Logerex Partner App",
-  "@home_title": {
-    "description": "Title of home page appbar"
+  "main_bottom_tabbar_home": "Home",
+  "@main_bottom_tabbar_home": {
+    "description": "Home label at bottom tabbar"
   },
-  "home_press_me": "You have press this button this many times",
-  "@home_press_me": {
-    "description": "Label of a number of times the button has been pressed"
+  "main_bottom_tabbar_payment": "Payment",
+  "@main_bottom_tabbar_payment": {
+    "description": "Payment label at bottom tabbar"
+  },
+  "main_bottom_tabbar_inbox": "Inbox",
+  "@main_bottom_tabbar_inbox": {
+    "description": "Inbox label at bottom tabbar"
+  },
+  "main_bottom_tabbar_more": "More",
+  "@main_bottom_tabbar_more": {
+    "description": "More label at bottom tabbar"
   }
 }
