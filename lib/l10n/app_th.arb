@@ -10,6 +10,8 @@
   "login_forgot_password_email": "Email",
   "login_forgot_password_sent_req": "Send Request",
   "login_forgot_password_back": "< Back",
-  "home_title": "แอพสำหรับพาร์ทเนอร์ของลอเจอเร็กซ์",
-  "home_press_me": "จำนวนครั้งที่คุณกด"
+  "main_bottom_tabbar_home": "Home",
+  "main_bottom_tabbar_payment": "Payment",
+  "main_bottom_tabbar_inbox": "Inbox",
+  "main_bottom_tabbar_more": "More"
 }
