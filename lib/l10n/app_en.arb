@@ -27,6 +27,22 @@
   "@login_back": {
     "description": "Back text button"
   },
+  "login_forgot_password_title": "Forgot Password",
+  "@login_forgot_password_title": {
+    "description": "Forgot Password Title"
+  },
+  "login_forgot_password_email": "Email",
+  "@login_forgot_password_title": {
+    "description": "Email hint text at forgot password modal"
+  },
+  "login_forgot_password_sent_req": "Send Request",
+  "@login_forgot_password_sent_req": {
+    "description": "Send password request to email button"
+  },
+  "login_forgot_password_back": "< Back",
+  "@login_forgot_password_back": {
+    "description": "Back to sign in modal button"
+  },
   "home_title": "Logerex Partner App",
   "@home_title": {
     "description": "Title of home page appbar"

@@ -6,6 +6,10 @@
   "login_sign_in_button": "Sign In",
   "login_forgot_password": "Forgot Password?",
   "login_back": "Back",
+  "login_forgot_password_title": "Forgot Password",
+  "login_forgot_password_email": "Email",
+  "login_forgot_password_sent_req": "Send Request",
+  "login_forgot_password_back": "< Back",
   "home_title": "แอพสำหรับพาร์ทเนอร์ของลอเจอเร็กซ์",
   "home_press_me": "จำนวนครั้งที่คุณกด"
 }
