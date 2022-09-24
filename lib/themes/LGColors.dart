@@ -17,10 +17,10 @@ class LGColors {
   static const Color neutral_100 = Color(0xFFF7C844);
   static const Color negative_100 = Color(0xFF8F2E1D);
   static const Color positive_100 = Color(0xFF0E8F58);
+  static const Color notice_100 = Color(0xFFEEA058);
+  static const Color cream = Color(0xFFF2DAC4);
   static const Color black = Color(0xFF000000);
   static const Color white = Color(0xFFFFFFFF);
-  static const Color cream = Color(0xFFF2DAC4);
-  static const Color yellow = Color(0xFFEEA058);
   static const Color transparent = Colors.transparent;
   static const Color dropshadow = Color.fromRGBO(0, 0, 0, 0.2);
 }

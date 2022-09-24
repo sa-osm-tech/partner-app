@@ -58,5 +58,21 @@
   "main_bottom_tabbar_more": "More",
   "@main_bottom_tabbar_more": {
     "description": "More label at bottom tabbar"
+  },
+  "more_settings_notice": "New to the app? Here’s a quick guide on how to make full use of Logerex.",
+  "@more_settings_notice": {
+    "description": "Notice text at more settings"
+  },
+  "more_settings_business_hours_option": "Business Hours",
+  "@more_settings_business_hours_option": {
+    "description": "Business hours option button"
+  },
+  "more_settings_base_contact_option": "Base Contact",
+  "@more_settings_business_hours_option": {
+    "description": "Base contact option button"
+  },
+  "more_settings_base_address_option": "Base Address",
+  "@more_settings_base_address_option": {
+    "description": "Base address option button"
   }
 }
