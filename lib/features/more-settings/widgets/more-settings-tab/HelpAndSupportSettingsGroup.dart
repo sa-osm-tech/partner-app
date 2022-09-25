@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:logerex_partner/features/more-settings/widgets/SettingsButton.dart';
+import 'package:logerex_partner/features/more-settings/widgets/more-settings-tab/SettingsButton.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
 
