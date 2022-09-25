@@ -23,9 +23,11 @@ class GeneralInfoOptionsList extends StatelessWidget {
                 size: 30,
               ),
               label: context.l10n.more_settings_business_hours_option,
-              onPressed: () {
-                print('Navigate to business hour page');
-              },
+              onPressed: null
+              // () {
+              //   print('Navigate to business hour page');
+              // },
+              ,
             ),
           ),
           Expanded(
@@ -35,9 +37,11 @@ class GeneralInfoOptionsList extends StatelessWidget {
                 size: 30,
               ),
               label: context.l10n.more_settings_base_contact_option,
-              onPressed: () {
-                print('Navigate to base contact page');
-              },
+              onPressed: null
+              // () {
+              //   print('Navigate to base contact page');
+              // },
+              ,
             ),
           ),
           Expanded(
@@ -47,9 +51,11 @@ class GeneralInfoOptionsList extends StatelessWidget {
                 size: 30,
               ),
               label: context.l10n.more_settings_base_address_option,
-              onPressed: () {
-                print('Navigate to base address page');
-              },
+              onPressed: null
+              // () {
+              //   print('Navigate to base address page');
+              // },
+              ,
             ),
           ),
         ],

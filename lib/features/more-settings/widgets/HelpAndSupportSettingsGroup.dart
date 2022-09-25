@@ -26,7 +26,7 @@ class HelpAndSupportSettingsGroup extends StatelessWidget {
             ),
             label: context
                 .l10n.more_settings_help_and_support_group_item_help_center,
-            onPressed: () {},
+            onPressed: null,
           ),
           SettingsButton(
             icon: const FaIcon(
@@ -35,7 +35,7 @@ class HelpAndSupportSettingsGroup extends StatelessWidget {
             ),
             label: context
                 .l10n.more_settings_help_and_support_group_item_contact_logerex,
-            onPressed: () {},
+            onPressed: null,
           ),
         ],
       ),

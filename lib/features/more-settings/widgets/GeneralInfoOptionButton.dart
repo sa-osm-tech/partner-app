@@ -5,7 +5,7 @@ import 'package:logerex_partner/themes/LGTextStyle.dart';
 class GeneralInfoOptionButton extends StatelessWidget {
   final Widget icon;
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const GeneralInfoOptionButton({
     super.key,

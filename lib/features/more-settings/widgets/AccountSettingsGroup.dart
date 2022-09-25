@@ -35,7 +35,7 @@ class AccountSettingsGroup extends StatelessWidget {
               size: 20,
             ),
             label: context.l10n.more_settings_account_group_item_bank_account,
-            onPressed: () {},
+            onPressed: null,
           ),
           SettingsButton(
             icon: const FaIcon(
@@ -43,7 +43,7 @@ class AccountSettingsGroup extends StatelessWidget {
               size: 20,
             ),
             label: context.l10n.more_settings_account_group_item_notification,
-            onPressed: () {},
+            onPressed: null,
           ),
           SettingsButton(
             icon: const FaIcon(
@@ -51,7 +51,7 @@ class AccountSettingsGroup extends StatelessWidget {
               size: 20,
             ),
             label: context.l10n.more_settings_account_group_item_app_settings,
-            onPressed: () {},
+            onPressed: null,
           ),
           RedSettingsButton(
             icon: const FaIcon(

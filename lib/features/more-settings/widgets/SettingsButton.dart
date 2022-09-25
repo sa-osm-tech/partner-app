@@ -5,7 +5,7 @@ import 'package:logerex_partner/themes/LGTextStyle.dart';
 class SettingsButton extends StatelessWidget {
   final Widget icon;
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   const SettingsButton({
     super.key,
     required this.icon,
@@ -20,7 +20,8 @@ class SettingsButton extends StatelessWidget {
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         padding: const EdgeInsets.all(12),
         foregroundColor: LGColors.black,
-        textStyle: LGTextStyle.p3.black,
+        disabledForegroundColor: LGColors.gray_50,
+        textStyle: LGTextStyle.p1.black,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
@@ -36,7 +37,6 @@ class SettingsButton extends StatelessWidget {
           const SizedBox(width: 16),
           Text(
             label,
-            style: LGTextStyle.p1.black,
           )
         ],
       ),
