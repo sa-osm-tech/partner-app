@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:logerex_partner/features/more-settings/widgets/RedSettingsButton.dart';
-import 'package:logerex_partner/features/more-settings/widgets/SettingsButton.dart';
+import 'package:logerex_partner/features/more-settings/screens/PersonalProfileScreen.dart';
+import 'package:logerex_partner/features/more-settings/widgets/more-settings-tab/RedSettingsButton.dart';
+import 'package:logerex_partner/features/more-settings/widgets/more-settings-tab/SettingsButton.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
 
@@ -27,7 +28,14 @@ class AccountSettingsGroup extends StatelessWidget {
             ),
             label:
                 context.l10n.more_settings_account_group_item_personal_profile,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const PersonalProfileScreen(),
+                ),
+              );
+            },
           ),
           SettingsButton(
             icon: const FaIcon(
@@ -47,7 +55,7 @@ class AccountSettingsGroup extends StatelessWidget {
           ),
           SettingsButton(
             icon: const FaIcon(
-              FontAwesomeIcons.buildingColumns,
+              FontAwesomeIcons.gear,
               size: 20,
             ),
             label: context.l10n.more_settings_account_group_item_app_settings,

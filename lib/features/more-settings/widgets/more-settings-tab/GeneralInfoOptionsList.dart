@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:logerex_partner/features/more-settings/widgets/GeneralInfoOptionButton.dart';
+import 'package:logerex_partner/features/more-settings/widgets/more-settings-tab/GeneralInfoOptionButton.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
 
 class GeneralInfoOptionsList extends StatelessWidget {

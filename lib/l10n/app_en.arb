@@ -116,5 +116,55 @@
   "more_settings_account_group_item_sign_out": "Sign out",
   "@more_settings_account_group_item_sign_out": {
     "description": "Sign out button at account group"
+  },
+
+
+  "personal_profile_title":"Personal Profile",
+  "@personal_profile_title": {
+    "description": "Personal Profile Page title"
+  },
+  "personal_profile_personal_info_group_title":"Personal info",
+  "@personal_profile_title": {
+    "description": "Personal info group title"
+  },
+  "personal_profile_personal_info_group_item_name":"Name",
+  "@personal_profile_personal_info_group_item_name": {
+    "description": "Name label at personal info group"
+  },
+  "personal_profile_personal_info_group_item_email":"Email",
+  "@personal_profile_personal_info_group_item_email": {
+    "description": "Email label at personal info group"
+  },
+  "personal_profile_personal_info_group_item_role":"Role",
+  "@personal_profile_personal_info_group_item_role": {
+    "description": "Role label at personal info group"
+  },
+  "personal_profile_personal_info_group_item_reset_password":"Reset Password",
+  "@personal_profile_personal_info_group_item_reset_password": {
+    "description": "Reset password button label at personal info group"
+  },
+  "personal_profile_contact_info_group_title":"Contact info",
+  "@personal_profile_contact_info_group_title": {
+    "description": "Contact info group title"
+  },
+  "personal_profile_contact_info_group_item_email":"Email",
+  "@personal_profile_contact_info_group_item_email": {
+    "description": "Email label at contact info group"
+  },
+  "personal_profile_contact_info_group_item_phone_no":"Phone Number",
+  "@personal_profile_contact_info_group_item_phone_no": {
+    "description": "Phone number label at contact info group"
+  },
+  "personal_profile_others_group_title":"Others",
+  "@personal_profile_others_group_title": {
+    "description": "Others group title"
+  },
+  "personal_profile_others_group_item_delete_account":"Delete account",
+  "@personal_profile_others_group_item_delete_account": {
+    "description": "Delete account button label at contact info group"
+  },
+  "personal_profile_submit_update_request":"Submit Update Request",
+  "@personal_profile_submit_update_request": {
+    "description": "Submit update request button label"
   }
 }

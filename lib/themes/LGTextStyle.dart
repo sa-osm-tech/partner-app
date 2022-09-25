@@ -12,9 +12,25 @@ class LGTextStyle {
         ),
       );
 
+  static LGTextColor get h4 => const LGTextColor(
+        TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w700,
+          fontFamily: 'Montserrat',
+        ),
+      );
+
   static LGTextColor get subheading1 => const LGTextColor(
         TextStyle(
           fontSize: 14,
+          fontWeight: FontWeight.w600,
+          fontFamily: 'Montserrat',
+        ),
+      );
+
+  static LGTextColor get subheading2 => const LGTextColor(
+        TextStyle(
+          fontSize: 12,
           fontWeight: FontWeight.w600,
           fontFamily: 'Montserrat',
         ),
@@ -30,7 +46,7 @@ class LGTextStyle {
 
   static LGTextColor get p3 => const LGTextColor(
         TextStyle(
-          fontSize: 11,
+          fontSize: 12,
           fontWeight: FontWeight.w500,
           fontFamily: 'Montserrat',
         ),
@@ -55,4 +71,6 @@ class LGTextColor {
   TextStyle get notice_100 => style.copyWith(color: LGColors.notice_100);
 
   TextStyle get primary_100 => style.copyWith(color: LGColors.primary_100);
+
+  TextStyle get secondary_100 => style.copyWith(color: LGColors.secondary_100);
 }
