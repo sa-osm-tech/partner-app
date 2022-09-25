@@ -53,4 +53,6 @@ class LGTextColor {
   TextStyle get highlight_100 => style.copyWith(color: LGColors.highlight_100);
 
   TextStyle get notice_100 => style.copyWith(color: LGColors.notice_100);
+
+  TextStyle get primary_100 => style.copyWith(color: LGColors.primary_100);
 }

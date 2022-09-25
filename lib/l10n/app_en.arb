@@ -3,6 +3,8 @@
   "@language": {
     "description": "Selected language"
   },
+
+
   "login_sign_in_title": "Sign In",
   "@login_sign_in_title": {
     "description": "Sign In Title"
@@ -43,6 +45,8 @@
   "@login_forgot_password_back": {
     "description": "Back to sign in modal button"
   },
+
+
   "main_bottom_tabbar_home": "Home",
   "@main_bottom_tabbar_home": {
     "description": "Home label at bottom tabbar"
@@ -59,6 +63,8 @@
   "@main_bottom_tabbar_more": {
     "description": "More label at bottom tabbar"
   },
+  
+  
   "more_settings_notice": "New to the app? Here’s a quick guide on how to make full use of Logerex.",
   "@more_settings_notice": {
     "description": "Notice text at more settings"
@@ -74,5 +80,41 @@
   "more_settings_base_address_option": "Base Address",
   "@more_settings_base_address_option": {
     "description": "Base address option button"
+  },
+  "more_settings_help_and_support_group_title": "Help and support",
+  "@more_settings_help_and_support_group_title": {
+    "description": "Help and support group titie"
+  },
+  "more_settings_help_and_support_group_item_help_center": "Help center",
+  "@more_settings_help_and_support_group_item_help_center": {
+    "description": "Help center button at help and support group"
+  },
+  "more_settings_help_and_support_group_item_contact_logerex": "Contact Logerex",
+  "@more_settings_help_and_support_group_item_contact_logerex": {
+    "description": "Contact Logerex button at help and support group"
+  },
+  "more_settings_account_group_title": "Account",
+  "@more_settings_account_group_title": {
+    "description": "Account group titie"
+  },
+  "more_settings_account_group_item_personal_profile": "Personal profile",
+  "@more_settings_account_group_item_personal_profile": {
+    "description": "Personal profile button at account group"
+  },
+  "more_settings_account_group_item_bank_account": "Bank account",
+  "@more_settings_account_group_item_bank_account": {
+    "description": "Bank account button at account group"
+  },
+  "more_settings_account_group_item_notification": "Notification",
+  "@more_settings_account_group_item_notification": {
+    "description": "Notification button at account group"
+  },
+  "more_settings_account_group_item_app_settings": "App settings",
+  "@more_settings_account_group_item_app_settings": {
+    "description": "App settings button at account group"
+  },
+  "more_settings_account_group_item_sign_out": "Sign out",
+  "@more_settings_account_group_item_sign_out": {
+    "description": "Sign out button at account group"
   }
 }
