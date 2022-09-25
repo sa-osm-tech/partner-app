@@ -44,6 +44,8 @@ dependencies:
   freezed_annotation: ^2.1.0
   state_notifier: ^0.7.2+1
   font_awesome_flutter: ^10.2.1
+  flutter_settings_screens: ^0.3.3-null-safety+2
+  carbon_icons: ^0.0.1+2
 
 dev_dependencies:
   flutter_test:

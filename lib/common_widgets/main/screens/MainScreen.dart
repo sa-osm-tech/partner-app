@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/main/states/MainState.dart';
 import 'package:logerex_partner/features/home/screens/HomeTab.dart';
 import 'package:logerex_partner/features/inbox/screens/InboxTab.dart';
-import 'package:logerex_partner/features/more/screens/MoreTab.dart';
+import 'package:logerex_partner/features/more-settings/screens/MoreSettingsTab.dart';
 import 'package:logerex_partner/features/payment/screens/PaymentTab.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
@@ -24,7 +24,7 @@ class MainScreen extends HookConsumerWidget {
         const HomeTab(),
         const PaymentTab(),
         const InboxTab(),
-        const MoreTab(),
+        const MoreSettingsTab(),
       ],
     );
 

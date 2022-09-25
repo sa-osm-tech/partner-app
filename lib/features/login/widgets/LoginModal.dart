@@ -112,7 +112,7 @@ class LoginModal extends HookConsumerWidget {
                     backgroundColor: LGColors.primary_100,
                     foregroundColor: LGColors.white,
                     disabledBackgroundColor: LGColors.gray_10,
-                    disabledForegroundColor: LGColors.gray_70,
+                    disabledForegroundColor: LGColors.gray_50,
                     animationDuration: const Duration(seconds: 0),
                     textStyle: LGTextStyle.subheading1.white,
                     shape: RoundedRectangleBorder(
