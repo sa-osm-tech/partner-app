@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:logerex_partner/features/more-settings/screens/ChangePasswordScreen.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
@@ -84,13 +85,20 @@ class PersonalInfoSection extends StatelessWidget {
             backgroundColor: LGColors.white,
             textStyle: LGTextStyle.p1.black,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ChangePasswordScreen(),
+              ),
+            );
+          },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 context.l10n
-                    .personal_profile_personal_info_group_item_reset_password,
+                    .personal_profile_personal_info_group_item_change_password,
               ),
               const FaIcon(
                 FontAwesomeIcons.angleRight,
