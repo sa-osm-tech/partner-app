@@ -204,5 +204,27 @@
   "change_password_button_change_password":"Change Password",
   "@change_password_button_change_password": {
     "description": "Change password button"
+  },
+
+
+  "change_phone_no_appbar_title":"Phone Number",
+  "@change_phone_no_appbar_title": {
+    "description": "Change phone number appbar title"
+  },
+  "change_phone_no_save_action":"Save",
+  "@change_phone_no_save_action": {
+    "description": "Save action button"
+  },
+  "change_phone_no_desc":"If we need to contact you, we may use this number to do so.",
+  "@change_phone_no_desc": {
+    "description": "Change phone number description"
+  },
+  "change_phone_no_textfield_label":"Phone Number",
+  "@change_phone_no_textfield_label": {
+    "description": "Change phone number textfield label"
+  },
+  "change_phone_no_textfield_hint_text":"Please enter your phone number",
+  "@change_phone_no_textfield_hint_text": {
+    "description": "Change phone number textfield hint text"
   }
 }
