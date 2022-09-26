@@ -17,7 +17,6 @@ class VerifyPasswordBody extends HookConsumerWidget {
 
     final stateNotifier =
         ref.watch(changePasswordStateNotifierProvider.notifier);
-    final state = ref.watch(changePasswordStateNotifierProvider);
 
     useEffect(
       () {

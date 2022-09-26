@@ -6,23 +6,26 @@ import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
 
 class PasswordTextField extends HookWidget {
+  final String? hintText;
   final TextEditingController passwordTextController;
 
   const PasswordTextField({
     super.key,
+    this.hintText,
     required this.passwordTextController,
   });
 
   @override
   Widget build(BuildContext context) {
     final isObscured = useState(true);
+
     return TextField(
       controller: passwordTextController,
       obscureText: isObscured.value,
       style: LGTextStyle.p1.black,
       decoration: InputDecoration(
         hintStyle: LGTextStyle.p1.gray_50,
-        hintText: context.l10n.login_password_hint_text,
+        hintText: hintText ?? context.l10n.login_password_hint_text,
         suffixIcon: Align(
           alignment: Alignment.centerRight,
           widthFactor: 1,

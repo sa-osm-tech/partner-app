@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/LGAppbar.dart';
 import 'package:logerex_partner/constants/LGEnums.dart';
 import 'package:logerex_partner/features/more-settings/states/change-password/ChangePasswordState.dart';
+import 'package:logerex_partner/features/more-settings/widgets/change-password/SetNewPasswordBody.dart';
 import 'package:logerex_partner/features/more-settings/widgets/change-password/VerifyPasswordBody.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
@@ -18,6 +19,7 @@ class ChangePasswordScreen extends HookConsumerWidget {
         ref.watch(changePasswordStateNotifierProvider.notifier);
     final state = ref.watch(changePasswordStateNotifierProvider);
 
+    // for VerifyPasswordBody
     final verifyPasswordTextController = useTextEditingController();
 
     Widget switchBody() {
@@ -25,9 +27,7 @@ class ChangePasswordScreen extends HookConsumerWidget {
         case CHANGE_PWD_STATE.VERIFY_PWD:
           return VerifyPasswordBody(verifyPasswordTextController);
         case CHANGE_PWD_STATE.SET_NEW_PWD:
-          return const Center(
-            child: Text('set new pwd screen'),
-          );
+          return SetNewPasswordBody();
         default:
           return VerifyPasswordBody(verifyPasswordTextController);
       }
@@ -78,7 +78,8 @@ class ChangePasswordScreen extends HookConsumerWidget {
         width: double.infinity,
         height: double.infinity,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 36),
+          padding:
+              const EdgeInsets.only(left: 18, right: 18, top: 36, bottom: 55),
           child: switchBody(),
         ),
       ),
