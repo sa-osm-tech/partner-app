@@ -57,5 +57,12 @@
   "change_password_strong_password_recommend":"Set a strong password that’s unique to this account and easy to remember.",
   "change_password_new_password_hint_text":"New password",
   "change_password_confirm_password_hint_text":"Confirm password",
-  "change_password_button_change_password":"Change Password"
+  "change_password_button_change_password":"Change Password",
+
+
+  "change_phone_no_appbar_title":"Phone Number",
+  "change_phone_no_save_action":"Save",
+  "change_phone_no_desc":"If we need to contact you, we may use this number to do so.",
+  "change_phone_no_textfield_label":"Phone Number",
+  "change_phone_no_textfield_hint_text":"Please enter your phone number"
 }
