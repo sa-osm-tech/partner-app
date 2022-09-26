@@ -139,9 +139,9 @@
   "@personal_profile_personal_info_group_item_role": {
     "description": "Role label at personal info group"
   },
-  "personal_profile_personal_info_group_item_reset_password":"Reset Password",
-  "@personal_profile_personal_info_group_item_reset_password": {
-    "description": "Reset password button label at personal info group"
+  "personal_profile_personal_info_group_item_change_password":"Change password",
+  "@personal_profile_personal_info_group_item_change_password": {
+    "description": "Change password button label at personal info group"
   },
   "personal_profile_contact_info_group_title":"Contact info",
   "@personal_profile_contact_info_group_title": {
@@ -166,5 +166,43 @@
   "personal_profile_submit_update_request":"Submit Update Request",
   "@personal_profile_submit_update_request": {
     "description": "Submit update request button label"
+  },
+
+
+  "change_password_appbar_title":"Change Password",
+  "@change_password_appbar_title": {
+    "description": "Change password appbar title"
+  }, 
+  "change_password_appbar_next_action":"Next",
+  "@change_password_appbar_next_action": {
+    "description": "Next action button"
+  }, 
+  "change_password_verify_label":"Verify your identity to continue",
+  "@change_password_verify_label": {
+    "description": "Verify identity label"
+  },
+  "change_password_password_helper_text":"Password",
+  "@change_password_password_helper_text": {
+    "description": "Password helper text"
+  },
+  "change_password_password_forgot_password":"Forgot your password?",
+  "@change_password_password_forgot_password": {
+    "description": "Forgot your password button"
+  },
+  "change_password_strong_password_recommend":"Set a strong password that’s unique to this account and easy to remember.",
+  "@change_password_strong_password_recommend": {
+    "description": "Set strong password recomendation text"
+  },
+  "change_password_new_password_hint_text":"New password",
+  "@change_password_new_password_hint_text": {
+    "description": "New password hint text"
+  },
+  "change_password_confirm_password_hint_text":"Confirm password",
+  "@change_password_confirm_password_hint_text": {
+    "description": "Confirm password hint text"
+  },
+  "change_password_button_change_password":"Change Password",
+  "@change_password_button_change_password": {
+    "description": "Change password button"
   }
 }

@@ -17,22 +17,6 @@ class PersonalProfileScreen extends HookConsumerWidget {
       backgroundColor: LGColors.gray_10,
       appBar: LGAppbar(
         title: context.l10n.personal_profile_title,
-        // actions: [
-        //   Row(
-        //     children: [
-        //       Padding(
-        //         padding: const EdgeInsets.all(12.0),
-        //         child: RichText(
-        //           text: TextSpan(
-        //             text: context.l10n.login_forgot_password_back,
-        //             style: LGTextStyle.p3.black,
-        //             recognizer: TapGestureRecognizer()..onTap = () {},
-        //           ),
-        //         ),
-        //       ),
-        //     ],
-        //   )
-        // ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 10),

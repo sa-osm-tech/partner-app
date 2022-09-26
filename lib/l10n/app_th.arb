@@ -40,11 +40,22 @@
   "personal_profile_personal_info_group_item_name":"Name",
   "personal_profile_personal_info_group_item_email":"Email",
   "personal_profile_personal_info_group_item_role":"Role", 
-  "personal_profile_personal_info_group_item_reset_password":"Reset Password",
+  "personal_profile_personal_info_group_item_change_password":"Change Password",
   "personal_profile_contact_info_group_title":"Contact info",
   "personal_profile_contact_info_group_item_email":"Email",
   "personal_profile_contact_info_group_item_phone_no":"Phone Number",
   "personal_profile_others_group_title":"Others",
   "personal_profile_others_group_item_delete_account":"Delete account",
-  "personal_profile_submit_update_request":"Submit Update Request"           
+  "personal_profile_submit_update_request":"Submit Update Request",
+
+
+  "change_password_appbar_title":"Change Password",
+  "change_password_appbar_next_action":"Next",
+  "change_password_verify_label":"Verify your identity to continue",
+  "change_password_password_helper_text":"Password",
+  "change_password_password_forgot_password":"Forgot your password?",
+  "change_password_strong_password_recommend":"Set a strong password that’s unique to this account and easy to remember.",
+  "change_password_new_password_hint_text":"New password",
+  "change_password_confirm_password_hint_text":"Confirm password",
+  "change_password_button_change_password":"Change Password"
 }
