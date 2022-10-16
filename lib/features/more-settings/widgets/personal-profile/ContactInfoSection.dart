@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/features/more-settings/screens/ChangePhoneNumberScreen.dart';
+import 'package:logerex_partner/features/more-settings/states/personal-profile/PersonalProfileState.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
 
-class ContactInfoSection extends StatelessWidget {
+class ContactInfoSection extends HookConsumerWidget {
   const ContactInfoSection({super.key});
 
+  String formatPhoneNumber(String phoneNumber) {
+    return '${phoneNumber.substring(0, 3)}-${phoneNumber.substring(3, 6)}-${phoneNumber.substring(6)}';
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(personalProfileStateNotifierProvider);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -41,7 +48,7 @@ class ContactInfoSection extends StatelessWidget {
                       style: LGTextStyle.p3.gray_70,
                     ),
                     Text(
-                      'osmtechsa@gmail.com',
+                      state.profile!.email,
                       style: LGTextStyle.p1.secondary_100,
                     ),
                   ],
@@ -78,7 +85,7 @@ class ContactInfoSection extends StatelessWidget {
                     style: LGTextStyle.p3.gray_70,
                   ),
                   Text(
-                    '081-234-5678',
+                    formatPhoneNumber(state.profile!.phone_number),
                     style: LGTextStyle.p1.secondary_100,
                   ),
                 ],

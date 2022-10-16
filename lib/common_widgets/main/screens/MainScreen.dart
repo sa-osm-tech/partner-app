@@ -6,6 +6,7 @@ import 'package:logerex_partner/common_widgets/main/states/MainState.dart';
 import 'package:logerex_partner/features/home/screens/HomeTab.dart';
 import 'package:logerex_partner/features/inbox/screens/InboxTab.dart';
 import 'package:logerex_partner/features/more-settings/screens/MoreSettingsTab.dart';
+import 'package:logerex_partner/features/more-settings/states/personal-profile/PersonalProfileState.dart';
 import 'package:logerex_partner/features/payment/screens/PaymentTab.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
@@ -19,6 +20,8 @@ class MainScreen extends HookConsumerWidget {
     final stateNotifier = ref.watch(mainStateNotifierProvider.notifier);
     final state = ref.watch(mainStateNotifierProvider);
 
+    final personalProfileStateNotifier =
+        ref.watch(personalProfileStateNotifierProvider.notifier);
     final tabsList = useMemoized(
       () => [
         const HomeTab(),
@@ -29,7 +32,13 @@ class MainScreen extends HookConsumerWidget {
     );
 
     useEffect(
-      () {},
+      () {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          stateNotifier.setSelectedTab(0);
+        });
+        personalProfileStateNotifier.getUserProfile();
+        return null;
+      },
       [],
     );
 
