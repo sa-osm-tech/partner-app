@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:logerex_partner/features/more-settings/models/personal-profile/PersonalProfileModel.dart';
+import 'package:logerex_partner/features/login/models/LoginModel.dart';
 import 'package:logerex_partner/preferences/UserPreferences.dart';
 import 'package:logerex_partner/utils/http/LGEndpoints.dart';
 
@@ -12,17 +12,17 @@ class LGHttp {
       responseType: ResponseType.json,
     ),
   );
-  Future<PersonalProfileModel> login(String username, String password) async {
+  Future<void> login(String username, String password) async {
     try {
       final response = await _dio.post(
         '${LGEndpoints.acctMgmtPath}/auth/login',
         data: {'email': username, 'password': password},
       );
-      final jsonResponse = PersonalProfileModel.fromJson(response.data['data']);
+      final jsonResponse = LoginModel.fromJson(response.data['data']);
+      print(jsonResponse);
       final token = response.data['data']['token'];
       await UserPreferences().setToken('Bearer $token');
-      return jsonResponse;
-      // personal
+      await UserPreferences().setUserId(jsonResponse.id);
     } on DioError catch (e) {
       print('Error: ${e.response?.data}');
       rethrow;

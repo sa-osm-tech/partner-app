@@ -14,9 +14,9 @@ abstract class PersonalProfileState with _$PersonalProfileState {
 class PersonalProfileStateNotifier extends StateNotifier<PersonalProfileState> {
   PersonalProfileStateNotifier() : super(const PersonalProfileState());
 
-  setProfile(PersonalProfileModel newProfile) {
-    state = state.copyWith(profile: newProfile);
-  }
+  // setProfile(PersonalProfileModel newProfile) {
+  //   state = state.copyWith(profile: newProfile);
+  // }
 }
 
 final personalProfileStateNotifierProvider = AutoDisposeStateNotifierProvider<

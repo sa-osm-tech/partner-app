@@ -14,6 +14,15 @@ class UserPreferences {
     return token;
   }
 
+  Future<void> setUserId(String userId) async {
+    await _storage.write(key: 'userId', value: userId);
+  }
+
+  Future<String?> getUserId() async {
+    final userId = await _storage.read(key: 'userId');
+    return userId;
+  }
+
   Future<void> logout() async {
     await _storage.delete(key: 'token');
   }

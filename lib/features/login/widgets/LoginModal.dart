@@ -101,13 +101,11 @@ class LoginModal extends HookConsumerWidget {
                   onPressed: (isButtonDisabled.value)
                       ? null
                       : () async {
-                          final response = await LGHttp().login(
+                          await LGHttp().login(
                             usernameTextController.text,
                             passwordTextController.text,
                           );
                           final token = await UserPreferences().getToken();
-                          // print('this your token ser: $token');
-                          personalProfileStateNotifier.setProfile(response);
                           if (token != null) {
                             Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(
