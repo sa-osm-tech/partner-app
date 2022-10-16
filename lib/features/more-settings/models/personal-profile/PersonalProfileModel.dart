@@ -7,14 +7,18 @@ part 'PersonalProfileModel.g.dart';
 class PersonalProfileModel with _$PersonalProfileModel {
   @JsonSerializable(explicitToJson: true)
   const factory PersonalProfileModel({
-    @Default('-') String name,
+    String? id,
     @Default('-') String email,
+    @Default('-') String partner_name,
+    @Default('-') String firstname,
+    @Default('-') String lastname,
+    @Default('-') String phone_number,
+    @Default('-') String base_address,
+    @Default('-') String base_contact,
+    @Default(false) bool is_available,
+    String? profile_picture_url,
+    int? status,
     int? role,
-    @Default('-') String phoneNumber,
-    String? profileImgURL,
-    String? baseAddress,
-    String? baseContact,
-    @Default(false) bool isAvailable,
   }) = _PersonalProfileModel;
 
   factory PersonalProfileModel.fromJson(Map<String, dynamic> json) =>

@@ -29,9 +29,7 @@ class MainScreen extends HookConsumerWidget {
     );
 
     useEffect(
-      () {
-        return null;
-      },
+      () {},
       [],
     );
 

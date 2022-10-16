@@ -9,8 +9,8 @@ class UserPreferences {
     await _storage.write(key: 'token', value: token);
   }
 
-  Future<String?> getToken() async {
-    final token = await _storage.read(key: 'token');
+  Future<String> getToken() async {
+    final token = await _storage.read(key: 'token') ?? '';
     return token;
   }
 
@@ -18,8 +18,8 @@ class UserPreferences {
     await _storage.write(key: 'userId', value: userId);
   }
 
-  Future<String?> getUserId() async {
-    final userId = await _storage.read(key: 'userId');
+  Future<String> getUserId() async {
+    final userId = await _storage.read(key: 'userId') ?? '';
     return userId;
   }
 

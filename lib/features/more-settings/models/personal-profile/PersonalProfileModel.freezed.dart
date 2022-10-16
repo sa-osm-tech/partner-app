@@ -20,14 +20,18 @@ PersonalProfileModel _$PersonalProfileModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PersonalProfileModel {
-  String get name => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
+  String get partner_name => throw _privateConstructorUsedError;
+  String get firstname => throw _privateConstructorUsedError;
+  String get lastname => throw _privateConstructorUsedError;
+  String get phone_number => throw _privateConstructorUsedError;
+  String get base_address => throw _privateConstructorUsedError;
+  String get base_contact => throw _privateConstructorUsedError;
+  bool get is_available => throw _privateConstructorUsedError;
+  String? get profile_picture_url => throw _privateConstructorUsedError;
+  int? get status => throw _privateConstructorUsedError;
   int? get role => throw _privateConstructorUsedError;
-  String get phoneNumber => throw _privateConstructorUsedError;
-  String? get profileImgURL => throw _privateConstructorUsedError;
-  String? get baseAddress => throw _privateConstructorUsedError;
-  String? get baseContact => throw _privateConstructorUsedError;
-  bool get isAvailable => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,14 +45,18 @@ abstract class $PersonalProfileModelCopyWith<$Res> {
           $Res Function(PersonalProfileModel) then) =
       _$PersonalProfileModelCopyWithImpl<$Res>;
   $Res call(
-      {String name,
+      {String? id,
       String email,
-      int? role,
-      String phoneNumber,
-      String? profileImgURL,
-      String? baseAddress,
-      String? baseContact,
-      bool isAvailable});
+      String partner_name,
+      String firstname,
+      String lastname,
+      String phone_number,
+      String base_address,
+      String base_contact,
+      bool is_available,
+      String? profile_picture_url,
+      int? status,
+      int? role});
 }
 
 /// @nodoc
@@ -62,48 +70,68 @@ class _$PersonalProfileModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
+    Object? id = freezed,
     Object? email = freezed,
+    Object? partner_name = freezed,
+    Object? firstname = freezed,
+    Object? lastname = freezed,
+    Object? phone_number = freezed,
+    Object? base_address = freezed,
+    Object? base_contact = freezed,
+    Object? is_available = freezed,
+    Object? profile_picture_url = freezed,
+    Object? status = freezed,
     Object? role = freezed,
-    Object? phoneNumber = freezed,
-    Object? profileImgURL = freezed,
-    Object? baseAddress = freezed,
-    Object? baseContact = freezed,
-    Object? isAvailable = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      partner_name: partner_name == freezed
+          ? _value.partner_name
+          : partner_name // ignore: cast_nullable_to_non_nullable
+              as String,
+      firstname: firstname == freezed
+          ? _value.firstname
+          : firstname // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastname: lastname == freezed
+          ? _value.lastname
+          : lastname // ignore: cast_nullable_to_non_nullable
+              as String,
+      phone_number: phone_number == freezed
+          ? _value.phone_number
+          : phone_number // ignore: cast_nullable_to_non_nullable
+              as String,
+      base_address: base_address == freezed
+          ? _value.base_address
+          : base_address // ignore: cast_nullable_to_non_nullable
+              as String,
+      base_contact: base_contact == freezed
+          ? _value.base_contact
+          : base_contact // ignore: cast_nullable_to_non_nullable
+              as String,
+      is_available: is_available == freezed
+          ? _value.is_available
+          : is_available // ignore: cast_nullable_to_non_nullable
+              as bool,
+      profile_picture_url: profile_picture_url == freezed
+          ? _value.profile_picture_url
+          : profile_picture_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as int?,
       role: role == freezed
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
               as int?,
-      phoneNumber: phoneNumber == freezed
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      profileImgURL: profileImgURL == freezed
-          ? _value.profileImgURL
-          : profileImgURL // ignore: cast_nullable_to_non_nullable
-              as String?,
-      baseAddress: baseAddress == freezed
-          ? _value.baseAddress
-          : baseAddress // ignore: cast_nullable_to_non_nullable
-              as String?,
-      baseContact: baseContact == freezed
-          ? _value.baseContact
-          : baseContact // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isAvailable: isAvailable == freezed
-          ? _value.isAvailable
-          : isAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -116,14 +144,18 @@ abstract class _$$_PersonalProfileModelCopyWith<$Res>
       __$$_PersonalProfileModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
+      {String? id,
       String email,
-      int? role,
-      String phoneNumber,
-      String? profileImgURL,
-      String? baseAddress,
-      String? baseContact,
-      bool isAvailable});
+      String partner_name,
+      String firstname,
+      String lastname,
+      String phone_number,
+      String base_address,
+      String base_contact,
+      bool is_available,
+      String? profile_picture_url,
+      int? status,
+      int? role});
 }
 
 /// @nodoc
@@ -139,48 +171,68 @@ class __$$_PersonalProfileModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
+    Object? id = freezed,
     Object? email = freezed,
+    Object? partner_name = freezed,
+    Object? firstname = freezed,
+    Object? lastname = freezed,
+    Object? phone_number = freezed,
+    Object? base_address = freezed,
+    Object? base_contact = freezed,
+    Object? is_available = freezed,
+    Object? profile_picture_url = freezed,
+    Object? status = freezed,
     Object? role = freezed,
-    Object? phoneNumber = freezed,
-    Object? profileImgURL = freezed,
-    Object? baseAddress = freezed,
-    Object? baseContact = freezed,
-    Object? isAvailable = freezed,
   }) {
     return _then(_$_PersonalProfileModel(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      partner_name: partner_name == freezed
+          ? _value.partner_name
+          : partner_name // ignore: cast_nullable_to_non_nullable
+              as String,
+      firstname: firstname == freezed
+          ? _value.firstname
+          : firstname // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastname: lastname == freezed
+          ? _value.lastname
+          : lastname // ignore: cast_nullable_to_non_nullable
+              as String,
+      phone_number: phone_number == freezed
+          ? _value.phone_number
+          : phone_number // ignore: cast_nullable_to_non_nullable
+              as String,
+      base_address: base_address == freezed
+          ? _value.base_address
+          : base_address // ignore: cast_nullable_to_non_nullable
+              as String,
+      base_contact: base_contact == freezed
+          ? _value.base_contact
+          : base_contact // ignore: cast_nullable_to_non_nullable
+              as String,
+      is_available: is_available == freezed
+          ? _value.is_available
+          : is_available // ignore: cast_nullable_to_non_nullable
+              as bool,
+      profile_picture_url: profile_picture_url == freezed
+          ? _value.profile_picture_url
+          : profile_picture_url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as int?,
       role: role == freezed
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
               as int?,
-      phoneNumber: phoneNumber == freezed
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      profileImgURL: profileImgURL == freezed
-          ? _value.profileImgURL
-          : profileImgURL // ignore: cast_nullable_to_non_nullable
-              as String?,
-      baseAddress: baseAddress == freezed
-          ? _value.baseAddress
-          : baseAddress // ignore: cast_nullable_to_non_nullable
-              as String?,
-      baseContact: baseContact == freezed
-          ? _value.baseContact
-          : baseContact // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isAvailable: isAvailable == freezed
-          ? _value.isAvailable
-          : isAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -190,42 +242,58 @@ class __$$_PersonalProfileModelCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true)
 class _$_PersonalProfileModel implements _PersonalProfileModel {
   const _$_PersonalProfileModel(
-      {this.name = '-',
+      {this.id,
       this.email = '-',
-      this.role,
-      this.phoneNumber = '-',
-      this.profileImgURL,
-      this.baseAddress,
-      this.baseContact,
-      this.isAvailable = false});
+      this.partner_name = '-',
+      this.firstname = '-',
+      this.lastname = '-',
+      this.phone_number = '-',
+      this.base_address = '-',
+      this.base_contact = '-',
+      this.is_available = false,
+      this.profile_picture_url,
+      this.status,
+      this.role});
 
   factory _$_PersonalProfileModel.fromJson(Map<String, dynamic> json) =>
       _$$_PersonalProfileModelFromJson(json);
 
   @override
-  @JsonKey()
-  final String name;
+  final String? id;
   @override
   @JsonKey()
   final String email;
   @override
+  @JsonKey()
+  final String partner_name;
+  @override
+  @JsonKey()
+  final String firstname;
+  @override
+  @JsonKey()
+  final String lastname;
+  @override
+  @JsonKey()
+  final String phone_number;
+  @override
+  @JsonKey()
+  final String base_address;
+  @override
+  @JsonKey()
+  final String base_contact;
+  @override
+  @JsonKey()
+  final bool is_available;
+  @override
+  final String? profile_picture_url;
+  @override
+  final int? status;
+  @override
   final int? role;
-  @override
-  @JsonKey()
-  final String phoneNumber;
-  @override
-  final String? profileImgURL;
-  @override
-  final String? baseAddress;
-  @override
-  final String? baseContact;
-  @override
-  @JsonKey()
-  final bool isAvailable;
 
   @override
   String toString() {
-    return 'PersonalProfileModel(name: $name, email: $email, role: $role, phoneNumber: $phoneNumber, profileImgURL: $profileImgURL, baseAddress: $baseAddress, baseContact: $baseContact, isAvailable: $isAvailable)';
+    return 'PersonalProfileModel(id: $id, email: $email, partner_name: $partner_name, firstname: $firstname, lastname: $lastname, phone_number: $phone_number, base_address: $base_address, base_contact: $base_contact, is_available: $is_available, profile_picture_url: $profile_picture_url, status: $status, role: $role)';
   }
 
   @override
@@ -233,33 +301,42 @@ class _$_PersonalProfileModel implements _PersonalProfileModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PersonalProfileModel &&
-            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.role, role) &&
             const DeepCollectionEquality()
-                .equals(other.phoneNumber, phoneNumber) &&
+                .equals(other.partner_name, partner_name) &&
+            const DeepCollectionEquality().equals(other.firstname, firstname) &&
+            const DeepCollectionEquality().equals(other.lastname, lastname) &&
             const DeepCollectionEquality()
-                .equals(other.profileImgURL, profileImgURL) &&
+                .equals(other.phone_number, phone_number) &&
             const DeepCollectionEquality()
-                .equals(other.baseAddress, baseAddress) &&
+                .equals(other.base_address, base_address) &&
             const DeepCollectionEquality()
-                .equals(other.baseContact, baseContact) &&
+                .equals(other.base_contact, base_contact) &&
             const DeepCollectionEquality()
-                .equals(other.isAvailable, isAvailable));
+                .equals(other.is_available, is_available) &&
+            const DeepCollectionEquality()
+                .equals(other.profile_picture_url, profile_picture_url) &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality().equals(other.role, role));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(role),
-      const DeepCollectionEquality().hash(phoneNumber),
-      const DeepCollectionEquality().hash(profileImgURL),
-      const DeepCollectionEquality().hash(baseAddress),
-      const DeepCollectionEquality().hash(baseContact),
-      const DeepCollectionEquality().hash(isAvailable));
+      const DeepCollectionEquality().hash(partner_name),
+      const DeepCollectionEquality().hash(firstname),
+      const DeepCollectionEquality().hash(lastname),
+      const DeepCollectionEquality().hash(phone_number),
+      const DeepCollectionEquality().hash(base_address),
+      const DeepCollectionEquality().hash(base_contact),
+      const DeepCollectionEquality().hash(is_available),
+      const DeepCollectionEquality().hash(profile_picture_url),
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(role));
 
   @JsonKey(ignore: true)
   @override
@@ -277,34 +354,46 @@ class _$_PersonalProfileModel implements _PersonalProfileModel {
 
 abstract class _PersonalProfileModel implements PersonalProfileModel {
   const factory _PersonalProfileModel(
-      {final String name,
+      {final String? id,
       final String email,
-      final int? role,
-      final String phoneNumber,
-      final String? profileImgURL,
-      final String? baseAddress,
-      final String? baseContact,
-      final bool isAvailable}) = _$_PersonalProfileModel;
+      final String partner_name,
+      final String firstname,
+      final String lastname,
+      final String phone_number,
+      final String base_address,
+      final String base_contact,
+      final bool is_available,
+      final String? profile_picture_url,
+      final int? status,
+      final int? role}) = _$_PersonalProfileModel;
 
   factory _PersonalProfileModel.fromJson(Map<String, dynamic> json) =
       _$_PersonalProfileModel.fromJson;
 
   @override
-  String get name;
+  String? get id;
   @override
   String get email;
   @override
+  String get partner_name;
+  @override
+  String get firstname;
+  @override
+  String get lastname;
+  @override
+  String get phone_number;
+  @override
+  String get base_address;
+  @override
+  String get base_contact;
+  @override
+  bool get is_available;
+  @override
+  String? get profile_picture_url;
+  @override
+  int? get status;
+  @override
   int? get role;
-  @override
-  String get phoneNumber;
-  @override
-  String? get profileImgURL;
-  @override
-  String? get baseAddress;
-  @override
-  String? get baseContact;
-  @override
-  bool get isAvailable;
   @override
   @JsonKey(ignore: true)
   _$$_PersonalProfileModelCopyWith<_$_PersonalProfileModel> get copyWith =>
