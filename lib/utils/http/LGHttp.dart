@@ -64,4 +64,24 @@ class LGHttp {
       return false;
     }
   }
+
+  Future<bool> resetUserPassword(String newUserPassword) async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.put(
+        '${LGEndpoints.acctMgmtPath}/account/reset-password',
+        data: {'new_password': newUserPassword},
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
+      // print(response);
+      if (response.data['status']) {
+        return true;
+      }
+      return false;
+    } on DioError catch (e) {
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
 }

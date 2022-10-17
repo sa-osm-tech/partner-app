@@ -6,6 +6,7 @@ import 'package:logerex_partner/common_widgets/PasswordTextField.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
+import 'package:logerex_partner/utils/http/LGHttp.dart';
 
 class SetNewPasswordBody extends HookConsumerWidget {
   const SetNewPasswordBody({super.key});
@@ -72,10 +73,15 @@ class SetNewPasswordBody extends HookConsumerWidget {
               ),
               onPressed: (isButtonDisabled.value)
                   ? null
-                  : () {
-                      print(
-                        'change password please ser',
-                      );
+                  : () async {
+                      if (newPasswordTextController.text !=
+                          confirmPasswordTextController.text) {
+                        print('password not match');
+                        return;
+                      }
+                      final newUserPassword = newPasswordTextController.text;
+                      await LGHttp().resetUserPassword(newUserPassword);
+                      Navigator.of(context).pop();
                     },
               child: Text(context.l10n.change_password_button_change_password),
             ),
