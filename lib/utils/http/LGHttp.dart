@@ -84,4 +84,24 @@ class LGHttp {
       return false;
     }
   }
+
+  Future<bool> updateUserPhoneNumber(String newUserPhoneNumber) async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.put(
+        '${LGEndpoints.acctMgmtPath}/account/update',
+        data: {'phone_number': '0$newUserPhoneNumber'},
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
+      if (response.data['status']) {
+        return true;
+      }
+      return false;
+    } on DioError catch (e) {
+      // print(e.response?.data);
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
 }

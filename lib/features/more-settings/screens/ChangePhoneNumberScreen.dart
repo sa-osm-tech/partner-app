@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/LGAppbar.dart';
+import 'package:logerex_partner/features/more-settings/states/personal-profile/PersonalProfileState.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
+import 'package:logerex_partner/utils/http/LGHttp.dart';
 
 class ChangePhoneNumberScreen extends HookConsumerWidget {
   const ChangePhoneNumberScreen({Key? key}) : super(key: key);
@@ -16,6 +18,9 @@ class ChangePhoneNumberScreen extends HookConsumerWidget {
     final changePhoneNumberTextController = useTextEditingController();
     final changePhoneNumberUpdate =
         useValueListenable(changePhoneNumberTextController);
+
+    final personalProfileStateNotifier =
+        ref.watch(personalProfileStateNotifierProvider.notifier);
 
     useEffect(
       () {
@@ -45,8 +50,18 @@ class ChangePhoneNumberScreen extends HookConsumerWidget {
                         : LGTextStyle.h4.secondary_50,
                     recognizer: TapGestureRecognizer()
                       ..onTap = isSaveActionEnable.value
-                          ? () {
-                              print(changePhoneNumberTextController.text);
+                          ? () async {
+                              final isSuccess =
+                                  await LGHttp().updateUserPhoneNumber(
+                                changePhoneNumberTextController.text,
+                              );
+                              if (!isSuccess) {
+                                print('cannot update user phone number');
+                                return;
+                              }
+                              await personalProfileStateNotifier
+                                  .getUserProfile();
+                              Navigator.of(context).pop();
                             }
                           : null,
                   ),

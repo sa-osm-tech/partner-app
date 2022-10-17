@@ -11,7 +11,7 @@ class ContactInfoSection extends HookConsumerWidget {
   const ContactInfoSection({super.key});
 
   String formatPhoneNumber(String phoneNumber) {
-    return '${phoneNumber.substring(0, 3)}-${phoneNumber.substring(3, 6)}-${phoneNumber.substring(6)}';
+    return '(+66) ${phoneNumber.substring(1, 3)}-${phoneNumber.substring(3, 6)}-${phoneNumber.substring(6)}';
   }
 
   @override

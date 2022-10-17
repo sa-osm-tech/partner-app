@@ -80,7 +80,12 @@ class SetNewPasswordBody extends HookConsumerWidget {
                         return;
                       }
                       final newUserPassword = newPasswordTextController.text;
-                      await LGHttp().resetUserPassword(newUserPassword);
+                      final isSuccess =
+                          await LGHttp().resetUserPassword(newUserPassword);
+                      if (!isSuccess) {
+                        print('cannot reset user password');
+                        return;
+                      }
                       Navigator.of(context).pop();
                     },
               child: Text(context.l10n.change_password_button_change_password),
