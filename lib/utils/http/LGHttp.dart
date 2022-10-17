@@ -21,7 +21,7 @@ class LGHttp {
       );
       final jsonResponse = LoginModel.fromJson(response.data['data']);
       final token = response.data['data']['token'];
-      await UserPreferences().setToken('Bearer $token');
+      await UserPreferences().setToken('$token');
       await UserPreferences().setUserId(jsonResponse.id);
     } on DioError catch (e) {
       // print('Error: ${e.response?.data}');
@@ -43,6 +43,25 @@ class LGHttp {
       rethrow;
     } catch (e) {
       rethrow;
+    }
+  }
+
+  Future<bool> verifyUserPassword(String currentUserPassword) async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.put(
+        '${LGEndpoints.acctMgmtPath}/account/verify-password',
+        data: {'old_password': currentUserPassword},
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
+      if (response.data['status']) {
+        return true;
+      }
+      return false;
+    } on DioError catch (e) {
+      return false;
+    } catch (e) {
+      return false;
     }
   }
 }
