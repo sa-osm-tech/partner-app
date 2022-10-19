@@ -64,5 +64,13 @@
   "change_phone_no_save_action":"Save",
   "change_phone_no_desc":"If we need to contact you, we may use this number to do so.",
   "change_phone_no_textfield_label":"Phone Number",
-  "change_phone_no_textfield_hint_text":"Please enter your phone number"
+  "change_phone_no_textfield_hint_text":"Please enter your phone number",
+
+
+  "home_tab_hello_title":"Hello",
+  "home_tab_banner_text":"Learn how to use the app features",
+  "home_tab_my_orders_button":"My Orders",
+  "home_tab_new_orders_button":"New Orders",
+  "home_tab_employees_button":"Employees",
+  "home_tab_feedback_button":"Feedback"
 }
