@@ -226,5 +226,31 @@
   "change_phone_no_textfield_hint_text":"Please enter your phone number",
   "@change_phone_no_textfield_hint_text": {
     "description": "Change phone number textfield hint text"
+  },
+
+
+  "home_tab_hello_title":"Hello",
+  "@home_tab_hello_title":{
+    "description": "Hello text at title"
+  },
+  "home_tab_banner_text":"Learn how to use the app features",
+  "@home_tab_banner_text":{
+    "description": "Banner text at home tab"
+  },
+  "home_tab_my_orders_button":"My Orders",
+  "@home_tab_my_orders_button":{
+    "description": "My orders button"
+  },
+  "home_tab_new_orders_button":"New Orders",
+  "@home_tab_new_orders_button":{
+    "description": "New orders button"
+  },
+  "home_tab_employees_button":"Employees",
+  "@home_tab_employees_button":{
+    "description": "Employees button"
+  },
+  "home_tab_feedback_button":"Feedback",
+  "@home_tab_feedback_button":{
+    "description": "Feedback button"
   }
 }

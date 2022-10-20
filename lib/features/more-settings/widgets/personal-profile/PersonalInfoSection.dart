@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/features/more-settings/screens/ChangePasswordScreen.dart';
+import 'package:logerex_partner/features/more-settings/states/personal-profile/PersonalProfileState.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
 
-class PersonalInfoSection extends StatelessWidget {
+class PersonalInfoSection extends HookConsumerWidget {
   const PersonalInfoSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(personalProfileStateNotifierProvider);
+
+    String switchRole() {
+      switch (state.profile!.role) {
+        case 0:
+          return 'Owner';
+        case 1:
+          return 'Manager';
+        case 2:
+          return 'Driver';
+        default:
+          return '-';
+      }
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -41,7 +58,8 @@ class PersonalInfoSection extends StatelessWidget {
                       style: LGTextStyle.p3.gray_70,
                     ),
                     Text(
-                      'OSMTech SA',
+                      // '${state.profile!.firstname} ${state.profile!.lastname}',
+                      state.profile!.partner_name,
                       style: LGTextStyle.p1.secondary_100,
                     ),
                   ],
@@ -55,7 +73,7 @@ class PersonalInfoSection extends StatelessWidget {
                           .l10n.personal_profile_personal_info_group_item_email,
                     ),
                     Text(
-                      'osmtechsa@gmail.com',
+                      state.profile!.email,
                       style: LGTextStyle.p1.secondary_100,
                     ),
                   ],
@@ -69,7 +87,7 @@ class PersonalInfoSection extends StatelessWidget {
                           .l10n.personal_profile_personal_info_group_item_role,
                     ),
                     Text(
-                      'Owner',
+                      switchRole(),
                       style: LGTextStyle.p1.secondary_100,
                     ),
                   ],

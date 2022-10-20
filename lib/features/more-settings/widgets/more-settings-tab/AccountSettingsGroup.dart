@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:logerex_partner/features/login/screens/LoginScreen.dart';
 import 'package:logerex_partner/features/more-settings/screens/PersonalProfileScreen.dart';
 import 'package:logerex_partner/features/more-settings/widgets/more-settings-tab/RedSettingsButton.dart';
 import 'package:logerex_partner/features/more-settings/widgets/more-settings-tab/SettingsButton.dart';
+import 'package:logerex_partner/preferences/UserPreferences.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
 
@@ -67,7 +69,15 @@ class AccountSettingsGroup extends StatelessWidget {
               size: 20,
             ),
             label: context.l10n.more_settings_account_group_item_sign_out,
-            onPressed: () {},
+            onPressed: () async {
+              await UserPreferences().logout();
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(
+                  builder: (context) => const LoginScreen(),
+                ),
+                (Route<dynamic> route) => false,
+              );
+            },
           )
         ],
       ),

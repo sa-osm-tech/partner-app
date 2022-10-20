@@ -9,6 +9,7 @@ import 'package:logerex_partner/features/more-settings/widgets/change-password/S
 import 'package:logerex_partner/features/more-settings/widgets/change-password/VerifyPasswordBody.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
+import 'package:logerex_partner/utils/http/LGHttp.dart';
 
 class ChangePasswordScreen extends HookConsumerWidget {
   const ChangePasswordScreen({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class ChangePasswordScreen extends HookConsumerWidget {
         case CHANGE_PWD_STATE.VERIFY_PWD:
           return VerifyPasswordBody(verifyPasswordTextController);
         case CHANGE_PWD_STATE.SET_NEW_PWD:
-          return SetNewPasswordBody();
+          return const SetNewPasswordBody();
         default:
           return VerifyPasswordBody(verifyPasswordTextController);
       }
@@ -49,13 +50,19 @@ class ChangePasswordScreen extends HookConsumerWidget {
                           : LGTextStyle.h4.secondary_50,
                       recognizer: TapGestureRecognizer()
                         ..onTap = state.isNextActionEnable
-                            ? () {
-                                print(
-                                  'verification pwd: ${verifyPasswordTextController.text}',
+                            ? () async {
+                                final isSuccessfullyVerified =
+                                    await LGHttp().verifyUserPassword(
+                                  verifyPasswordTextController.text,
                                 );
-                                stateNotifier.setChangePasswordState(
-                                  CHANGE_PWD_STATE.SET_NEW_PWD,
-                                );
+                                if (isSuccessfullyVerified) {
+                                  print('verified successfully');
+                                  stateNotifier.setChangePasswordState(
+                                    CHANGE_PWD_STATE.SET_NEW_PWD,
+                                  );
+                                } else {
+                                  print('verified unsuccessfully');
+                                }
                               }
                             : null,
                     ),
