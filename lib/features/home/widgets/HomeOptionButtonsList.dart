@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:logerex_partner/features/home/screens/EmployeesScreen.dart';
+import 'package:logerex_partner/features/home/screens/MyOrdersScreen.dart';
+import 'package:logerex_partner/features/home/screens/NewOrdersScreen.dart';
 import 'package:logerex_partner/features/home/widgets/HomeOptionButton.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
 
@@ -23,7 +26,14 @@ class HomeOptionButtonList extends StatelessWidget {
                 FontAwesomeIcons.truck,
                 size: 20,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MyOrdersScreen(),
+                  ),
+                );
+              },
             ),
           ),
           Expanded(
@@ -33,7 +43,14 @@ class HomeOptionButtonList extends StatelessWidget {
                 FontAwesomeIcons.fileImport,
                 size: 20,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NewOrdersScreen(),
+                  ),
+                );
+              },
             ),
           ),
           Expanded(
@@ -43,7 +60,14 @@ class HomeOptionButtonList extends StatelessWidget {
                 FontAwesomeIcons.users,
                 size: 20,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const EmployeesScreen(),
+                  ),
+                );
+              },
             ),
           ),
           Expanded(

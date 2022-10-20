@@ -9,12 +9,16 @@ class LGAppbar extends StatelessWidget with PreferredSizeWidget {
 
   final String title;
   final List<Widget>? actions;
+  final PreferredSizeWidget? bottom;
 
   LGAppbar({
     super.key,
     required this.title,
     this.actions,
-  }) : preferredSize = const Size.fromHeight(60.0);
+    this.bottom,
+  }) : preferredSize = bottom == null
+            ? const Size.fromHeight(60.0)
+            : const Size.fromHeight(110);
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +35,7 @@ class LGAppbar extends StatelessWidget with PreferredSizeWidget {
       title: Text(
         title,
       ),
+      bottom: bottom,
       titleTextStyle: LGTextStyle.h4.black,
       centerTitle: true,
       actions: actions,

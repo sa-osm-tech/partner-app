@@ -19,6 +19,13 @@ class LGTextStyle {
           fontFamily: 'Montserrat',
         ),
       );
+  static LGTextColor get h5 => const LGTextColor(
+        TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w700,
+          fontFamily: 'Montserrat',
+        ),
+      );
 
   static LGTextColor get subheading1 => const LGTextColor(
         TextStyle(
