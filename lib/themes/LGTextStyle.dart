@@ -58,6 +58,13 @@ class LGTextStyle {
           fontFamily: 'Montserrat',
         ),
       );
+  static LGTextColor get p4 => const LGTextColor(
+        TextStyle(
+          fontSize: 10,
+          fontWeight: FontWeight.w500,
+          fontFamily: 'Montserrat',
+        ),
+      );
 }
 
 class LGTextColor {
