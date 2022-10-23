@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/LGAppbar.dart';
 import 'package:logerex_partner/common_widgets/LGRedbutton.dart';
+import 'package:logerex_partner/features/home/screens/new-orders/DriverAssignmentScreen.dart';
 import 'package:logerex_partner/features/home/widgets/new-orders/NewOrderDetailsCard.dart';
 import 'package:logerex_partner/features/home/widgets/new-orders/NewOrderDetailsHeaderSection.dart';
 
@@ -38,7 +39,14 @@ class NewOrderDetailsScreen extends HookConsumerWidget {
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: LGRedButton(
                 text: 'Accept This Order',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DriverAssignmentScreen(),
+                    ),
+                  );
+                },
               ),
             )
           ],
