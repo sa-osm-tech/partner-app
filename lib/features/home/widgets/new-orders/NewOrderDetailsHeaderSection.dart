@@ -37,11 +37,9 @@ class NewOrderDetailsHeaderSection extends StatelessWidget {
             child: icon,
           ),
           const SizedBox(width: 12),
-          Expanded(
-            child: Text(
-              details,
-              style: LGTextStyle.p3.gray_50,
-            ),
+          Text(
+            details,
+            style: LGTextStyle.p3.gray_50,
           )
         ],
       );
