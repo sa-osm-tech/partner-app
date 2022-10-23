@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logerex_partner/common_widgets/LGFallbackDialog.dart';
 import 'package:logerex_partner/common_widgets/PasswordTextField.dart';
 import 'package:logerex_partner/common_widgets/main/screens/MainScreen.dart';
 import 'package:logerex_partner/constants/LGEnums.dart';
@@ -97,10 +98,21 @@ class LoginModal extends HookConsumerWidget {
                   onPressed: (isButtonDisabled.value)
                       ? null
                       : () async {
-                          await LGHttp().login(
+                          final isSuccess = await LGHttp().login(
                             usernameTextController.text,
                             passwordTextController.text,
                           );
+                          if (!isSuccess) {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) =>
+                                  const LGFallbackAlertDialog(
+                                title: 'Could Not Sign In',
+                                content: 'Your email or password is incorrect.',
+                              ),
+                            );
+                            return;
+                          }
                           final token = await UserPreferences().getToken();
                           if (token != null) {
                             Navigator.of(context).pushAndRemoveUntil(

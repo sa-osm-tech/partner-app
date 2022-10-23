@@ -13,28 +13,34 @@ class LGHttp {
       responseType: ResponseType.json,
     ),
   );
-  Future<void> login(String username, String password) async {
+  Future<bool> login(String username, String password) async {
     try {
       final response = await _dio.post(
         '${LGEndpoints.acctMgmtPath}/auth/login',
         data: {'email': username, 'password': password},
       );
       final jsonResponse = LoginModel.fromJson(response.data['data']);
+      print(jsonResponse);
       final token = response.data['data']['token'];
       await UserPreferences().setToken('$token');
       await UserPreferences().setUserId(jsonResponse.id);
+      return true;
     } on DioError catch (e) {
-      // print('Error: ${e.response?.data}');
-      rethrow;
+      print('Error: ${e.response?.data}');
+      return false;
     } catch (e) {
-      rethrow;
+      print('Error: ${e}');
+      return false;
     }
   }
 
   Future<PersonalProfileModel> getUserProfile(String userId) async {
     try {
-      final response =
-          await _dio.get('${LGEndpoints.acctMgmtPath}/account/$userId');
+      final token = await UserPreferences().getToken();
+      final response = await _dio.get(
+        '${LGEndpoints.acctMgmtPath}/account/$userId',
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
       final jsonResponse = PersonalProfileModel.fromJson(response.data['data']);
       print(jsonResponse);
       return jsonResponse;
