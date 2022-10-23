@@ -13,8 +13,8 @@ class OrderDetailsCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: 16,
-            height: 16,
+            width: 12,
+            height: 12,
             child: icon,
           ),
           const SizedBox(width: 10),
@@ -80,7 +80,7 @@ class OrderDetailsCard extends StatelessWidget {
                   orderInfo(
                     const FaIcon(
                       FontAwesomeIcons.sackDollar,
-                      size: 16,
+                      size: 12,
                       color: LGColors.primary_100,
                     ),
                     '50,000 Baht',
@@ -88,7 +88,7 @@ class OrderDetailsCard extends StatelessWidget {
                   orderInfo(
                     const FaIcon(
                       FontAwesomeIcons.weightHanging,
-                      size: 16,
+                      size: 12,
                       color: LGColors.primary_100,
                     ),
                     '500 kg',
@@ -96,7 +96,7 @@ class OrderDetailsCard extends StatelessWidget {
                   orderInfo(
                     const FaIcon(
                       FontAwesomeIcons.phone,
-                      size: 16,
+                      size: 12,
                       color: LGColors.primary_100,
                     ),
                     '(+66) 95-555-5555',
@@ -104,7 +104,7 @@ class OrderDetailsCard extends StatelessWidget {
                   orderInfo(
                     const FaIcon(
                       FontAwesomeIcons.solidClock,
-                      size: 16,
+                      size: 12,
                       color: LGColors.primary_100,
                     ),
                     '2 Oct 2022 12:00',
@@ -112,7 +112,7 @@ class OrderDetailsCard extends StatelessWidget {
                   orderInfo(
                     const FaIcon(
                       FontAwesomeIcons.locationDot,
-                      size: 16,
+                      size: 12,
                       color: LGColors.primary_100,
                     ),
                     'From:\nซอย หม่อมแผ้ว 3 แขวง สามเสนใน เขตพญาไท กรุงเทพมหานคร 10400',
@@ -120,7 +120,7 @@ class OrderDetailsCard extends StatelessWidget {
                   orderInfo(
                     const FaIcon(
                       FontAwesomeIcons.locationDot,
-                      size: 16,
+                      size: 12,
                       color: LGColors.primary_100,
                     ),
                     'To:\nหมู่ที่ 8 123 ถนน ศรีนครินทร์ ตำบล บางเมือง อำเภอเมืองสมุทรปราการ สมุทรปราการ 10270',
@@ -128,7 +128,7 @@ class OrderDetailsCard extends StatelessWidget {
                   orderInfo(
                     const FaIcon(
                       FontAwesomeIcons.box,
-                      size: 16,
+                      size: 12,
                       color: LGColors.primary_100,
                     ),
                     'Details:\nสินค้าชนิดแห้ง แตกหักได้ยาก เก็บในอุณหภูมิห้อง 20-27 เซลเซียส จำเป็นต้องใช้รถบรรทุกควบคุมอุณหภูมิ สินค้ามีทั้งหมด 5 ลัง แต่ละลังมีขนาด 1m x 1m x 1m',
