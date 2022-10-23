@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:logerex_partner/common_widgets/LGActionAlertDialog.dart';
 import 'package:logerex_partner/features/login/screens/LoginScreen.dart';
 import 'package:logerex_partner/features/more-settings/screens/PersonalProfileScreen.dart';
 import 'package:logerex_partner/features/more-settings/widgets/more-settings-tab/RedSettingsButton.dart';
@@ -70,12 +71,22 @@ class AccountSettingsGroup extends StatelessWidget {
             ),
             label: context.l10n.more_settings_account_group_item_sign_out,
             onPressed: () async {
-              await UserPreferences().logout();
-              Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(
-                  builder: (context) => const LoginScreen(),
+              showDialog(
+                context: context,
+                builder: (BuildContext context) => LGActionAlertDialog(
+                  title: 'Sign Out',
+                  content: 'Are you sure you want to sign out?',
+                  onConfirm: () async {
+                    await UserPreferences().logout();
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ),
+                      (Route<dynamic> route) => false,
+                    );
+                  },
                 ),
-                (Route<dynamic> route) => false,
               );
             },
           )
