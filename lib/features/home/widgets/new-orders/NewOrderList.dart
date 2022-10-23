@@ -7,23 +7,26 @@ class NewOrderList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('0~50 km', style: LGTextStyle.h3.black),
-        const SizedBox(height: 10),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: const [
-              NewOrderCard(),
-              NewOrderCard(),
-              NewOrderCard(),
-              NewOrderCard(),
-            ],
+    return Container(
+      margin: const EdgeInsets.only(bottom: 25),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('0~50 km', style: LGTextStyle.h3.black),
+          const SizedBox(height: 10),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: const [
+                NewOrderCard(),
+                NewOrderCard(),
+                NewOrderCard(),
+                NewOrderCard(),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

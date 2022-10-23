@@ -18,8 +18,7 @@ class NewOrdersScreen extends HookConsumerWidget {
           bottom: 67,
         ),
         child: SingleChildScrollView(
-          child: Wrap(
-            runSpacing: 25,
+          child: Column(
             children: const [
               NewOrderList(),
               NewOrderList(),
