@@ -11,6 +11,13 @@ class LGTextStyle {
           fontFamily: 'Montserrat',
         ),
       );
+  static LGTextColor get h3 => const LGTextColor(
+        TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+          fontFamily: 'Montserrat',
+        ),
+      );
 
   static LGTextColor get h4 => const LGTextColor(
         TextStyle(
@@ -61,6 +68,13 @@ class LGTextStyle {
   static LGTextColor get p4 => const LGTextColor(
         TextStyle(
           fontSize: 10,
+          fontWeight: FontWeight.w500,
+          fontFamily: 'Montserrat',
+        ),
+      );
+  static LGTextColor get p5 => const LGTextColor(
+        TextStyle(
+          fontSize: 8,
           fontWeight: FontWeight.w500,
           fontFamily: 'Montserrat',
         ),

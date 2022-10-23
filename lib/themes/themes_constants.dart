@@ -14,6 +14,7 @@ ThemeData lightTheme = ThemeData(
       borderSide: BorderSide(color: LGColors.gray_50),
     ),
   ),
+  fontFamily: 'Montserrat',
 );
 
 ThemeData darkTheme = ThemeData(
