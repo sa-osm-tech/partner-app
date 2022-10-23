@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
-class NoOrderDisplay extends StatelessWidget {
-  const NoOrderDisplay({super.key});
+class EmptyDisplay extends StatelessWidget {
+  final String detail;
+  final String suggestionDetail;
+  const EmptyDisplay({
+    super.key,
+    required this.detail,
+    required this.suggestionDetail,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +23,14 @@ class NoOrderDisplay extends StatelessWidget {
             height: 25,
           ),
           Text(
-            'Hmm... Looks like there are no orders here.',
+            detail,
             style: LGTextStyle.p3.gray_50,
           ),
           const SizedBox(
             height: 10,
           ),
           Text(
-            'Try updading / accepting some orders',
+            suggestionDetail,
             style: LGTextStyle.p3.action_100,
             textAlign: TextAlign.center,
           ),

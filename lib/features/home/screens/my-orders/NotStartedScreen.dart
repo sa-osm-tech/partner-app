@@ -7,7 +7,7 @@ class NotStartedScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // return const NoOrderDisplay();
+    // return const EmptyDisplay();
     return Padding(
       padding: const EdgeInsets.only(top: 30, right: 15, bottom: 70, left: 15),
       child: SingleChildScrollView(
