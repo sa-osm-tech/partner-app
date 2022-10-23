@@ -133,22 +133,6 @@ class OrderDetailsCard extends StatelessWidget {
                     ),
                     'Details:\nสินค้าชนิดแห้ง แตกหักได้ยาก เก็บในอุณหภูมิห้อง 20-27 เซลเซียส จำเป็นต้องใช้รถบรรทุกควบคุมอุณหภูมิ สินค้ามีทั้งหมด 5 ลัง แต่ละลังมีขนาด 1m x 1m x 1m',
                   ),
-                  orderInfo(
-                    const FaIcon(
-                      FontAwesomeIcons.box,
-                      size: 16,
-                      color: LGColors.primary_100,
-                    ),
-                    'Details:\nสินค้าชนิดแห้ง แตกหักได้ยาก เก็บในอุณหภูมิห้อง 20-27 เซลเซียส จำเป็นต้องใช้รถบรรทุกควบคุมอุณหภูมิ สินค้ามีทั้งหมด 5 ลัง แต่ละลังมีขนาด 1m x 1m x 1m',
-                  ),
-                  orderInfo(
-                    const FaIcon(
-                      FontAwesomeIcons.box,
-                      size: 16,
-                      color: LGColors.primary_100,
-                    ),
-                    'Details:\nสินค้าชนิดแห้ง แตกหักได้ยาก เก็บในอุณหภูมิห้อง 20-27 เซลเซียส จำเป็นต้องใช้รถบรรทุกควบคุมอุณหภูมิ สินค้ามีทั้งหมด 5 ลัง แต่ละลังมีขนาด 1m x 1m x 1m',
-                  ),
                 ],
               ),
             ],
