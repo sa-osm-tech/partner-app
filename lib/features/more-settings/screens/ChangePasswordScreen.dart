@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/LGAppbar.dart';
+import 'package:logerex_partner/common_widgets/LGFallbackDialog.dart';
 import 'package:logerex_partner/constants/LGEnums.dart';
 import 'package:logerex_partner/features/more-settings/states/change-password/ChangePasswordState.dart';
 import 'package:logerex_partner/features/more-settings/widgets/change-password/SetNewPasswordBody.dart';
@@ -55,14 +56,21 @@ class ChangePasswordScreen extends HookConsumerWidget {
                                     await LGHttp().verifyUserPassword(
                                   verifyPasswordTextController.text,
                                 );
-                                if (isSuccessfullyVerified) {
-                                  print('verified successfully');
-                                  stateNotifier.setChangePasswordState(
-                                    CHANGE_PWD_STATE.SET_NEW_PWD,
+                                if (!isSuccessfullyVerified) {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) =>
+                                        const LGFallbackAlertDialog(
+                                      title: 'Verify Unsuccessful',
+                                      content:
+                                          'Your password is incorrect. Please check your password.',
+                                    ),
                                   );
-                                } else {
-                                  print('verified unsuccessfully');
+                                  return;
                                 }
+                                stateNotifier.setChangePasswordState(
+                                  CHANGE_PWD_STATE.SET_NEW_PWD,
+                                );
                               }
                             : null,
                     ),
