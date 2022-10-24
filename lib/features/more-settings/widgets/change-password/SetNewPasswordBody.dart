@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logerex_partner/common_widgets/LGActionAlertDialog.dart';
+import 'package:logerex_partner/common_widgets/LGFallbackDialog.dart';
 import 'package:logerex_partner/common_widgets/PasswordTextField.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
@@ -76,17 +78,35 @@ class SetNewPasswordBody extends HookConsumerWidget {
                   : () async {
                       if (newPasswordTextController.text !=
                           confirmPasswordTextController.text) {
-                        print('password not match');
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) =>
+                              const LGFallbackAlertDialog(
+                            title: 'Passwords Do Not Match',
+                            content:
+                                'The confirm password does not match your password.',
+                          ),
+                        );
                         return;
                       }
-                      final newUserPassword = newPasswordTextController.text;
-                      final isSuccess =
-                          await LGHttp().resetUserPassword(newUserPassword);
-                      if (!isSuccess) {
-                        print('cannot reset user password');
-                        return;
-                      }
-                      Navigator.of(context).pop();
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) => LGActionAlertDialog(
+                          title: 'Confirm Change Password',
+                          content:
+                              'This will update your old password to the new password.',
+                          onConfirm: () async {
+                            // Navigator.of(context).pop();
+                            final newUserPassword =
+                                newPasswordTextController.text;
+                            final isSuccess = await LGHttp()
+                                .resetUserPassword(newUserPassword);
+                            Navigator.of(context).pop(); // pop out alertdialog
+                            Navigator.of(context)
+                                .pop(); // pop to personal profile screen
+                          },
+                        ),
+                      );
                     },
               child: Text(context.l10n.change_password_button_change_password),
             ),
