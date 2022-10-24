@@ -108,21 +108,6 @@ class SetNewPasswordBody extends HookConsumerWidget {
                         ),
                       );
                     },
-              // : () async {
-              //     if (newPasswordTextController.text !=
-              //         confirmPasswordTextController.text) {
-              //       print('password not match');
-              //       return;
-              //     }
-              //     final newUserPassword = newPasswordTextController.text;
-              //     final isSuccess =
-              //         await LGHttp().resetUserPassword(newUserPassword);
-              //     if (!isSuccess) {
-              //       print('cannot reset user password');
-              //       return;
-              //     }
-              //     Navigator.of(context).pop();
-              //   },
               child: Text(context.l10n.change_password_button_change_password),
             ),
           ),

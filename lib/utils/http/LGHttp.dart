@@ -20,7 +20,7 @@ class LGHttp {
         data: {'email': username, 'password': password},
       );
       final jsonResponse = LoginModel.fromJson(response.data['data']);
-      print(jsonResponse);
+
       final token = response.data['data']['token'];
       await UserPreferences().setToken('$token');
       await UserPreferences().setUserId(jsonResponse.id);
@@ -42,7 +42,6 @@ class LGHttp {
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );
       final jsonResponse = PersonalProfileModel.fromJson(response.data['data']);
-      print(jsonResponse);
       return jsonResponse;
     } on DioError catch (e) {
       // print('Error: ${e.response?.data}');
