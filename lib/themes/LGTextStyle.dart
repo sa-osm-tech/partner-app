@@ -90,6 +90,8 @@ class LGTextColor {
 
   TextStyle get white => style.copyWith(color: LGColors.white);
 
+  TextStyle get gray_30 => style.copyWith(color: LGColors.gray_30);
+
   TextStyle get gray_50 => style.copyWith(color: LGColors.gray_50);
 
   TextStyle get gray_70 => style.copyWith(color: LGColors.gray_70);

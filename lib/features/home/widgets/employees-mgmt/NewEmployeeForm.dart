@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/LGFallbackDialog.dart';
 import 'package:logerex_partner/common_widgets/LGRedbutton.dart';
+import 'package:logerex_partner/features/home/screens/employees-mgmt/ShowPasswordScreen.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:string_validator/string_validator.dart';
 
@@ -149,7 +150,7 @@ class NewEmployeeForm extends HookConsumerWidget {
                       builder: (BuildContext context) =>
                           const LGFallbackAlertDialog(
                         title: 'Invalid Request',
-                        content: 'Please check your input at each field.',
+                        content: 'Please check your inputs at each field.',
                       ),
                     );
                     return;
@@ -157,6 +158,11 @@ class NewEmployeeForm extends HookConsumerWidget {
                   print(fullNameTextController.text);
                   print(emailTextController.text);
                   print(phoneNumberTextController.text);
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const ShowPasswordScreen(),
+                    ),
+                  );
                 },
         ),
       ],
