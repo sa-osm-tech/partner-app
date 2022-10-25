@@ -11,9 +11,6 @@ class ShowPasswordScreen extends HookConsumerWidget {
     return Scaffold(
       appBar: LGAppbar(
         title: 'Employee Management',
-        onPressBackButton: () {
-          Navigator.of(context).pop();
-        },
       ),
       body: Padding(
         padding: const EdgeInsets.only(
@@ -22,7 +19,7 @@ class ShowPasswordScreen extends HookConsumerWidget {
           bottom: 55,
         ),
         child: Column(
-          children: [
+          children: const [
             Expanded(
               child: ShowPasswordSection(),
             ),

@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
-class ShowPasswordSection extends StatelessWidget {
+class ShowPasswordSection extends HookConsumerWidget {
   const ShowPasswordSection({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final generatedPasswordTextController = useTextEditingController(
+      text: 'nFielA83bVxldO2',
+    );
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -25,31 +32,31 @@ class ShowPasswordSection extends StatelessWidget {
             width: 280,
             height: 50,
             child: TextFormField(
-              // enabled: false,
+              controller: generatedPasswordTextController,
               style: LGTextStyle.p1.black,
               textAlignVertical: TextAlignVertical.center,
               readOnly: true,
-              initialValue: 'nFielA83bVxldO2',
+              // initialValue: 'nFielA83bVxldO2',
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(
+                contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: LGColors.primary_100,
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: LGColors.primary_100,
                   ),
                 ),
                 suffixIcon: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: LGColors.primary_100,
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10),
                       bottomRight: Radius.circular(10),
                     ),
@@ -57,14 +64,19 @@ class ShowPasswordSection extends StatelessWidget {
                   child: IconButton(
                     color: LGColors.white,
                     constraints: const BoxConstraints(),
-                    onPressed: () {},
-                    icon: FaIcon(
+                    onPressed: () {
+                      Clipboard.setData(
+                        ClipboardData(
+                          text: generatedPasswordTextController.text,
+                        ),
+                      );
+                    },
+                    icon: const FaIcon(
                       FontAwesomeIcons.solidClipboard,
-                      // size: 20,
+                      size: 20,
                     ),
                   ),
                 ),
-                // isCollapsed: true,
               ),
             ),
           ),
