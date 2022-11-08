@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/LGAppbar.dart';
 import 'package:logerex_partner/features/home/screens/employees-mgmt/AddNewEmployeeScreen.dart';
-import 'package:logerex_partner/features/home/widgets/EmptyDisplay.dart';
+import 'package:logerex_partner/features/home/widgets/employees-mgmt/EmployeesList.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
 class EmployeesScreen extends HookConsumerWidget {
@@ -39,9 +39,30 @@ class EmployeesScreen extends HookConsumerWidget {
           )
         ],
       ),
-      body: const EmptyDisplay(
-        detail: 'Looks like you currently have no employees.',
-        suggestionDetail: 'Try adding one.',
+      // body: const EmptyDisplay(
+      //   detail: 'Looks like you currently have no employees.',
+      //   suggestionDetail: 'Try adding one.',
+      // ),
+      body: Padding(
+        padding: const EdgeInsets.only(
+          top: 20,
+          left: 15,
+          right: 15,
+          bottom: 55,
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Wrap(
+                  children: const [
+                    EmployeesList(),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

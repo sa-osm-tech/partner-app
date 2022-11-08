@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:logerex_partner/features/home/widgets/new-orders/NewOrderDriverCard.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
-class DriverList extends StatelessWidget {
+class NewOrderDriverList extends StatelessWidget {
   final String driverRole;
-  const DriverList({super.key, required this.driverRole});
+  const NewOrderDriverList({super.key, required this.driverRole});
 
   @override
   Widget build(BuildContext context) {

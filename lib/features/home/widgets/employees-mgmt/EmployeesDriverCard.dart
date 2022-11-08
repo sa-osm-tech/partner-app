@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:logerex_partner/features/home/screens/employees-mgmt/EmployeeInfoScreen.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
-class NewOrderDriverCard extends StatelessWidget {
-  const NewOrderDriverCard({super.key});
+class EmployeesDriverCard extends StatelessWidget {
+  const EmployeesDriverCard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
-        onTap: () {},
+        onTap: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const EmployeeInfoScreen(),
+            ),
+          );
+        },
         child: Container(
           padding: const EdgeInsets.all(10),
           width: MediaQuery.of(context).size.width * 0.85,
