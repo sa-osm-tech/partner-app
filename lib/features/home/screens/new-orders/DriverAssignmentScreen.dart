@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/LGAppbar.dart';
 import 'package:logerex_partner/common_widgets/LGRedbutton.dart';
-import 'package:logerex_partner/features/home/widgets/new-orders/DriverList.dart';
+import 'package:logerex_partner/features/home/widgets/new-orders/NewOrderDriverList.dart';
 
 class DriverAssignmentScreen extends HookConsumerWidget {
   const DriverAssignmentScreen({super.key});
@@ -25,10 +25,10 @@ class DriverAssignmentScreen extends HookConsumerWidget {
                 child: Wrap(
                   runSpacing: 30,
                   children: const [
-                    DriverList(
+                    NewOrderDriverList(
                       driverRole: 'Owner',
                     ),
-                    DriverList(
+                    NewOrderDriverList(
                       driverRole: 'Drivers',
                     )
                   ],

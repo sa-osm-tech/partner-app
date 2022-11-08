@@ -8,6 +8,7 @@ class LGAppbar extends StatelessWidget with PreferredSizeWidget {
   final Size preferredSize;
 
   final String title;
+  final VoidCallback? onPressBackButton;
   final List<Widget>? actions;
   final PreferredSizeWidget? bottom;
 
@@ -16,6 +17,7 @@ class LGAppbar extends StatelessWidget with PreferredSizeWidget {
     required this.title,
     this.actions,
     this.bottom,
+    this.onPressBackButton,
   }) : preferredSize = bottom == null
             ? const Size.fromHeight(60.0)
             : const Size.fromHeight(110);
@@ -28,9 +30,10 @@ class LGAppbar extends StatelessWidget with PreferredSizeWidget {
           FontAwesomeIcons.arrowLeft,
           size: 18,
         ),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
+        onPressed: onPressBackButton ??
+            () {
+              Navigator.of(context).pop();
+            },
       ),
       title: Text(
         title,

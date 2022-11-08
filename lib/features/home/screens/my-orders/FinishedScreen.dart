@@ -9,7 +9,7 @@ class FinishedScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return const EmptyDisplay(
       detail: 'Hmm... Looks like there are no orders here.',
-      suggestionDetail: 'Try updading / accepting some orders',
+      suggestionDetail: 'Try updating / accepting some orders',
     );
   }
 }
