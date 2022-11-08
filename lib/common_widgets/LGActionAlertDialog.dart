@@ -5,11 +5,13 @@ class LGActionAlertDialog extends StatelessWidget {
   final String title;
   final String content;
   final VoidCallback onConfirm;
+  final bool isDestructiveAction;
   const LGActionAlertDialog({
     super.key,
     required this.title,
     required this.content,
     required this.onConfirm,
+    this.isDestructiveAction = false,
   });
 
   @override
@@ -27,6 +29,7 @@ class LGActionAlertDialog extends StatelessWidget {
           child: const Text('Cancel'),
         ),
         CupertinoDialogAction(
+          isDestructiveAction: isDestructiveAction,
           onPressed: onConfirm,
           child: const Text('Confirm'),
         ),
