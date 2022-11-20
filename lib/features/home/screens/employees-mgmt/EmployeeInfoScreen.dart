@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:logerex_partner/common_widgets/LGActionAlertDialog.dart';
+import 'package:intl/intl.dart';
 import 'package:logerex_partner/common_widgets/LGAppbar.dart';
-import 'package:logerex_partner/common_widgets/LGRedbutton.dart';
+import 'package:logerex_partner/features/home/models/employee-mgmt/EmployeeModel.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
 class EmployeeInfoScreen extends HookConsumerWidget {
-  const EmployeeInfoScreen({super.key});
+  final EmployeeModel employee;
+  const EmployeeInfoScreen({
+    super.key,
+    required this.employee,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -65,30 +69,30 @@ class EmployeeInfoScreen extends HookConsumerWidget {
             Wrap(
               runSpacing: 15,
               children: [
-                driverInfo('Name', 'Maj.Gen.Kolachai Suwannaboon'),
-                driverInfo('Email', 'pleumlovedad@gmail.com'),
-                driverInfo('Phone', '(+66) 85-555-5555'),
-                driverInfo('Role', 'Driver'),
-                driverInfo('Created', '04 Oct 2022'),
+                driverInfo(
+                  'Name',
+                  '${employee.first_name} ${employee.last_name}',
+                ),
+                driverInfo(
+                  'Email',
+                  employee.email,
+                ),
+                driverInfo(
+                  'Phone',
+                  '(+66) ${employee.phone_number.substring(1)}',
+                ),
+                driverInfo(
+                  'Role',
+                  employee.role == 0 ? 'Owner' : 'Driver',
+                ),
+                driverInfo(
+                  'Created',
+                  DateFormat('dd/MM/yyyy HH:mm', 'th')
+                      .format(employee.create_at!)
+                      .toString(),
+                ),
               ],
             ),
-            const Spacer(),
-            LGRedButton(
-              text: 'Delete',
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) => LGActionAlertDialog(
-                    isDestructiveAction: true,
-                    title: 'Delete this employee?',
-                    content: 'This employee\'s data will be lost forever!',
-                    onConfirm: () {
-                      print('do something');
-                    },
-                  ),
-                );
-              },
-            )
           ],
         ),
       ),

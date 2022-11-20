@@ -19,8 +19,6 @@ class PersonalInfoSection extends HookConsumerWidget {
         case 0:
           return 'Owner';
         case 1:
-          return 'Manager';
-        case 2:
           return 'Driver';
         default:
           return '-';
@@ -58,8 +56,7 @@ class PersonalInfoSection extends HookConsumerWidget {
                       style: LGTextStyle.p3.gray_70,
                     ),
                     Text(
-                      // '${state.profile!.firstname} ${state.profile!.lastname}',
-                      state.profile!.partner_name,
+                      '${state.profile!.first_name} ${state.profile!.last_name}',
                       style: LGTextStyle.p1.secondary_100,
                     ),
                   ],

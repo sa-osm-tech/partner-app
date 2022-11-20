@@ -1,14 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'PersonalProfileModel.dart';
+part of 'EmployeeModel.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PersonalProfileModel _$$_PersonalProfileModelFromJson(
-        Map<String, dynamic> json) =>
-    _$_PersonalProfileModel(
+_$_EmployeeModel _$$_EmployeeModelFromJson(Map<String, dynamic> json) =>
+    _$_EmployeeModel(
       id: json['id'] as String?,
       email: json['email'] as String? ?? '-',
       partner_name: json['partner_name'] as String? ?? '-',
@@ -19,12 +18,15 @@ _$_PersonalProfileModel _$$_PersonalProfileModelFromJson(
       base_contact: json['base_contact'] as String? ?? '-',
       is_available: json['is_available'] as bool? ?? false,
       profile_picture_url: json['profile_picture_url'] as String?,
+      create_at: json['create_at'] == null
+          ? null
+          : DateTime.parse(json['create_at'] as String),
       status: json['status'] as int?,
       role: json['role'] as int?,
+      owner_id: json['owner_id'] as String? ?? '-',
     );
 
-Map<String, dynamic> _$$_PersonalProfileModelToJson(
-        _$_PersonalProfileModel instance) =>
+Map<String, dynamic> _$$_EmployeeModelToJson(_$_EmployeeModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'email': instance.email,
@@ -36,6 +38,8 @@ Map<String, dynamic> _$$_PersonalProfileModelToJson(
       'base_contact': instance.base_contact,
       'is_available': instance.is_available,
       'profile_picture_url': instance.profile_picture_url,
+      'create_at': instance.create_at?.toIso8601String(),
       'status': instance.status,
       'role': instance.role,
+      'owner_id': instance.owner_id,
     };

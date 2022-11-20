@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:logerex_partner/features/home/models/employee-mgmt/CreateEmployeeModel.dart';
+import 'package:logerex_partner/features/home/models/employee-mgmt/EmployeeModel.dart';
 import 'package:logerex_partner/features/login/models/LoginModel.dart';
 import 'package:logerex_partner/features/more-settings/models/personal-profile/PersonalProfileModel.dart';
 import 'package:logerex_partner/preferences/UserPreferences.dart';
@@ -13,6 +15,8 @@ class LGHttp {
       responseType: ResponseType.json,
     ),
   );
+
+  // Account Management
   Future<bool> login(String username, String password) async {
     try {
       final response = await _dio.post(
@@ -107,6 +111,55 @@ class LGHttp {
       return false;
     } catch (e) {
       return false;
+    }
+  }
+
+  Future<List<EmployeeModel>> getEmployees() async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.get(
+        '${LGEndpoints.acctMgmtPath}/account/employees',
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
+      final data = List<dynamic>.from(response.data['data']);
+      final result = data.map((e) => EmployeeModel.fromJson(e)).toList();
+      return result;
+    } on DioError catch (e) {
+      // print(e.response?.data);
+      // return false;
+      rethrow;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<CreateEmployeeModel> createEmployee(
+    String email,
+    String firstName,
+    String lastName,
+    String phoneNumber,
+  ) async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.post(
+        '${LGEndpoints.acctMgmtPath}/account/employee',
+        data: {
+          'email': email,
+          'first_name': firstName,
+          'last_name': lastName,
+          'phone_number': phoneNumber,
+          'profile_picture_url': 'dummy',
+        },
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
+      final jsonResponse = CreateEmployeeModel.fromJson(response.data['data']);
+      return jsonResponse;
+    } on DioError catch (e) {
+      // print(e.response?.data);
+      // return false;
+      rethrow;
+    } catch (e) {
+      rethrow;
     }
   }
 }

@@ -7,12 +7,16 @@ import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
 class ShowPasswordSection extends HookConsumerWidget {
-  const ShowPasswordSection({super.key});
+  final String generatedPassword;
+  const ShowPasswordSection({
+    super.key,
+    required this.generatedPassword,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final generatedPasswordTextController = useTextEditingController(
-      text: 'nFielA83bVxldO2',
+      text: generatedPassword,
     );
 
     return Center(

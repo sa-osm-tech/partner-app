@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'PersonalProfileModel.dart';
+part of 'EmployeeModel.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PersonalProfileModel _$PersonalProfileModelFromJson(Map<String, dynamic> json) {
-  return _PersonalProfileModel.fromJson(json);
+EmployeeModel _$EmployeeModelFromJson(Map<String, dynamic> json) {
+  return _EmployeeModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PersonalProfileModel {
+mixin _$EmployeeModel {
   String? get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get partner_name => throw _privateConstructorUsedError;
@@ -30,20 +30,22 @@ mixin _$PersonalProfileModel {
   String get base_contact => throw _privateConstructorUsedError;
   bool get is_available => throw _privateConstructorUsedError;
   String? get profile_picture_url => throw _privateConstructorUsedError;
+  DateTime? get create_at => throw _privateConstructorUsedError;
   int? get status => throw _privateConstructorUsedError;
   int? get role => throw _privateConstructorUsedError;
+  String get owner_id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PersonalProfileModelCopyWith<PersonalProfileModel> get copyWith =>
+  $EmployeeModelCopyWith<EmployeeModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PersonalProfileModelCopyWith<$Res> {
-  factory $PersonalProfileModelCopyWith(PersonalProfileModel value,
-          $Res Function(PersonalProfileModel) then) =
-      _$PersonalProfileModelCopyWithImpl<$Res>;
+abstract class $EmployeeModelCopyWith<$Res> {
+  factory $EmployeeModelCopyWith(
+          EmployeeModel value, $Res Function(EmployeeModel) then) =
+      _$EmployeeModelCopyWithImpl<$Res>;
   $Res call(
       {String? id,
       String email,
@@ -55,18 +57,20 @@ abstract class $PersonalProfileModelCopyWith<$Res> {
       String base_contact,
       bool is_available,
       String? profile_picture_url,
+      DateTime? create_at,
       int? status,
-      int? role});
+      int? role,
+      String owner_id});
 }
 
 /// @nodoc
-class _$PersonalProfileModelCopyWithImpl<$Res>
-    implements $PersonalProfileModelCopyWith<$Res> {
-  _$PersonalProfileModelCopyWithImpl(this._value, this._then);
+class _$EmployeeModelCopyWithImpl<$Res>
+    implements $EmployeeModelCopyWith<$Res> {
+  _$EmployeeModelCopyWithImpl(this._value, this._then);
 
-  final PersonalProfileModel _value;
+  final EmployeeModel _value;
   // ignore: unused_field
-  final $Res Function(PersonalProfileModel) _then;
+  final $Res Function(EmployeeModel) _then;
 
   @override
   $Res call({
@@ -80,8 +84,10 @@ class _$PersonalProfileModelCopyWithImpl<$Res>
     Object? base_contact = freezed,
     Object? is_available = freezed,
     Object? profile_picture_url = freezed,
+    Object? create_at = freezed,
     Object? status = freezed,
     Object? role = freezed,
+    Object? owner_id = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -124,6 +130,10 @@ class _$PersonalProfileModelCopyWithImpl<$Res>
           ? _value.profile_picture_url
           : profile_picture_url // ignore: cast_nullable_to_non_nullable
               as String?,
+      create_at: create_at == freezed
+          ? _value.create_at
+          : create_at // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -132,16 +142,20 @@ class _$PersonalProfileModelCopyWithImpl<$Res>
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
               as int?,
+      owner_id: owner_id == freezed
+          ? _value.owner_id
+          : owner_id // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$$_PersonalProfileModelCopyWith<$Res>
-    implements $PersonalProfileModelCopyWith<$Res> {
-  factory _$$_PersonalProfileModelCopyWith(_$_PersonalProfileModel value,
-          $Res Function(_$_PersonalProfileModel) then) =
-      __$$_PersonalProfileModelCopyWithImpl<$Res>;
+abstract class _$$_EmployeeModelCopyWith<$Res>
+    implements $EmployeeModelCopyWith<$Res> {
+  factory _$$_EmployeeModelCopyWith(
+          _$_EmployeeModel value, $Res Function(_$_EmployeeModel) then) =
+      __$$_EmployeeModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? id,
@@ -154,20 +168,22 @@ abstract class _$$_PersonalProfileModelCopyWith<$Res>
       String base_contact,
       bool is_available,
       String? profile_picture_url,
+      DateTime? create_at,
       int? status,
-      int? role});
+      int? role,
+      String owner_id});
 }
 
 /// @nodoc
-class __$$_PersonalProfileModelCopyWithImpl<$Res>
-    extends _$PersonalProfileModelCopyWithImpl<$Res>
-    implements _$$_PersonalProfileModelCopyWith<$Res> {
-  __$$_PersonalProfileModelCopyWithImpl(_$_PersonalProfileModel _value,
-      $Res Function(_$_PersonalProfileModel) _then)
-      : super(_value, (v) => _then(v as _$_PersonalProfileModel));
+class __$$_EmployeeModelCopyWithImpl<$Res>
+    extends _$EmployeeModelCopyWithImpl<$Res>
+    implements _$$_EmployeeModelCopyWith<$Res> {
+  __$$_EmployeeModelCopyWithImpl(
+      _$_EmployeeModel _value, $Res Function(_$_EmployeeModel) _then)
+      : super(_value, (v) => _then(v as _$_EmployeeModel));
 
   @override
-  _$_PersonalProfileModel get _value => super._value as _$_PersonalProfileModel;
+  _$_EmployeeModel get _value => super._value as _$_EmployeeModel;
 
   @override
   $Res call({
@@ -181,10 +197,12 @@ class __$$_PersonalProfileModelCopyWithImpl<$Res>
     Object? base_contact = freezed,
     Object? is_available = freezed,
     Object? profile_picture_url = freezed,
+    Object? create_at = freezed,
     Object? status = freezed,
     Object? role = freezed,
+    Object? owner_id = freezed,
   }) {
-    return _then(_$_PersonalProfileModel(
+    return _then(_$_EmployeeModel(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -225,6 +243,10 @@ class __$$_PersonalProfileModelCopyWithImpl<$Res>
           ? _value.profile_picture_url
           : profile_picture_url // ignore: cast_nullable_to_non_nullable
               as String?,
+      create_at: create_at == freezed
+          ? _value.create_at
+          : create_at // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -233,6 +255,10 @@ class __$$_PersonalProfileModelCopyWithImpl<$Res>
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
               as int?,
+      owner_id: owner_id == freezed
+          ? _value.owner_id
+          : owner_id // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -240,8 +266,8 @@ class __$$_PersonalProfileModelCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$_PersonalProfileModel implements _PersonalProfileModel {
-  const _$_PersonalProfileModel(
+class _$_EmployeeModel implements _EmployeeModel {
+  const _$_EmployeeModel(
       {this.id,
       this.email = '-',
       this.partner_name = '-',
@@ -252,11 +278,13 @@ class _$_PersonalProfileModel implements _PersonalProfileModel {
       this.base_contact = '-',
       this.is_available = false,
       this.profile_picture_url,
+      this.create_at,
       this.status,
-      this.role});
+      this.role,
+      this.owner_id = '-'});
 
-  factory _$_PersonalProfileModel.fromJson(Map<String, dynamic> json) =>
-      _$$_PersonalProfileModelFromJson(json);
+  factory _$_EmployeeModel.fromJson(Map<String, dynamic> json) =>
+      _$$_EmployeeModelFromJson(json);
 
   @override
   final String? id;
@@ -287,20 +315,25 @@ class _$_PersonalProfileModel implements _PersonalProfileModel {
   @override
   final String? profile_picture_url;
   @override
+  final DateTime? create_at;
+  @override
   final int? status;
   @override
   final int? role;
+  @override
+  @JsonKey()
+  final String owner_id;
 
   @override
   String toString() {
-    return 'PersonalProfileModel(id: $id, email: $email, partner_name: $partner_name, first_name: $first_name, last_name: $last_name, phone_number: $phone_number, base_address: $base_address, base_contact: $base_contact, is_available: $is_available, profile_picture_url: $profile_picture_url, status: $status, role: $role)';
+    return 'EmployeeModel(id: $id, email: $email, partner_name: $partner_name, first_name: $first_name, last_name: $last_name, phone_number: $phone_number, base_address: $base_address, base_contact: $base_contact, is_available: $is_available, profile_picture_url: $profile_picture_url, create_at: $create_at, status: $status, role: $role, owner_id: $owner_id)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PersonalProfileModel &&
+            other is _$_EmployeeModel &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality()
@@ -318,8 +351,10 @@ class _$_PersonalProfileModel implements _PersonalProfileModel {
                 .equals(other.is_available, is_available) &&
             const DeepCollectionEquality()
                 .equals(other.profile_picture_url, profile_picture_url) &&
+            const DeepCollectionEquality().equals(other.create_at, create_at) &&
             const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.role, role));
+            const DeepCollectionEquality().equals(other.role, role) &&
+            const DeepCollectionEquality().equals(other.owner_id, owner_id));
   }
 
   @JsonKey(ignore: true)
@@ -336,25 +371,26 @@ class _$_PersonalProfileModel implements _PersonalProfileModel {
       const DeepCollectionEquality().hash(base_contact),
       const DeepCollectionEquality().hash(is_available),
       const DeepCollectionEquality().hash(profile_picture_url),
+      const DeepCollectionEquality().hash(create_at),
       const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(role));
+      const DeepCollectionEquality().hash(role),
+      const DeepCollectionEquality().hash(owner_id));
 
   @JsonKey(ignore: true)
   @override
-  _$$_PersonalProfileModelCopyWith<_$_PersonalProfileModel> get copyWith =>
-      __$$_PersonalProfileModelCopyWithImpl<_$_PersonalProfileModel>(
-          this, _$identity);
+  _$$_EmployeeModelCopyWith<_$_EmployeeModel> get copyWith =>
+      __$$_EmployeeModelCopyWithImpl<_$_EmployeeModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PersonalProfileModelToJson(
+    return _$$_EmployeeModelToJson(
       this,
     );
   }
 }
 
-abstract class _PersonalProfileModel implements PersonalProfileModel {
-  const factory _PersonalProfileModel(
+abstract class _EmployeeModel implements EmployeeModel {
+  const factory _EmployeeModel(
       {final String? id,
       final String email,
       final String partner_name,
@@ -365,11 +401,13 @@ abstract class _PersonalProfileModel implements PersonalProfileModel {
       final String base_contact,
       final bool is_available,
       final String? profile_picture_url,
+      final DateTime? create_at,
       final int? status,
-      final int? role}) = _$_PersonalProfileModel;
+      final int? role,
+      final String owner_id}) = _$_EmployeeModel;
 
-  factory _PersonalProfileModel.fromJson(Map<String, dynamic> json) =
-      _$_PersonalProfileModel.fromJson;
+  factory _EmployeeModel.fromJson(Map<String, dynamic> json) =
+      _$_EmployeeModel.fromJson;
 
   @override
   String? get id;
@@ -392,11 +430,15 @@ abstract class _PersonalProfileModel implements PersonalProfileModel {
   @override
   String? get profile_picture_url;
   @override
+  DateTime? get create_at;
+  @override
   int? get status;
   @override
   int? get role;
   @override
+  String get owner_id;
+  @override
   @JsonKey(ignore: true)
-  _$$_PersonalProfileModelCopyWith<_$_PersonalProfileModel> get copyWith =>
+  _$$_EmployeeModelCopyWith<_$_EmployeeModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

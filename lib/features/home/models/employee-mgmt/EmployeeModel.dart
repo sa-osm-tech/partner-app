@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'PersonalProfileModel.freezed.dart';
-part 'PersonalProfileModel.g.dart';
+part 'EmployeeModel.freezed.dart';
+part 'EmployeeModel.g.dart';
 
 @freezed
-class PersonalProfileModel with _$PersonalProfileModel {
+class EmployeeModel with _$EmployeeModel {
   @JsonSerializable(explicitToJson: true)
-  const factory PersonalProfileModel({
+  const factory EmployeeModel({
     String? id,
     @Default('-') String email,
     @Default('-') String partner_name,
@@ -17,10 +17,12 @@ class PersonalProfileModel with _$PersonalProfileModel {
     @Default('-') String base_contact,
     @Default(false) bool is_available,
     String? profile_picture_url,
+    DateTime? create_at,
     int? status,
     int? role,
-  }) = _PersonalProfileModel;
+    @Default('-') String owner_id,
+  }) = _EmployeeModel;
 
-  factory PersonalProfileModel.fromJson(Map<String, dynamic> json) =>
-      _$PersonalProfileModelFromJson(json);
+  factory EmployeeModel.fromJson(Map<String, dynamic> json) =>
+      _$EmployeeModelFromJson(json);
 }

@@ -4,7 +4,8 @@ import 'package:logerex_partner/common_widgets/LGAppbar.dart';
 import 'package:logerex_partner/features/home/widgets/employees-mgmt/ShowPasswordSection.dart';
 
 class ShowPasswordScreen extends HookConsumerWidget {
-  const ShowPasswordScreen({super.key});
+  final String generatedPassword;
+  const ShowPasswordScreen({super.key, required this.generatedPassword});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,9 +20,11 @@ class ShowPasswordScreen extends HookConsumerWidget {
           bottom: 55,
         ),
         child: Column(
-          children: const [
+          children: [
             Expanded(
-              child: ShowPasswordSection(),
+              child: ShowPasswordSection(
+                generatedPassword: generatedPassword,
+              ),
             ),
             // LGRedButton(text: 'Close')
           ],
