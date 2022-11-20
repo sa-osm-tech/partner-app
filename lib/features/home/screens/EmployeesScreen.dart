@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/LGAppbar.dart';
 import 'package:logerex_partner/features/home/screens/employees-mgmt/AddNewEmployeeScreen.dart';
+import 'package:logerex_partner/features/home/states/employees-mgmt/EmployeeManagementState.dart';
 import 'package:logerex_partner/features/home/widgets/employees-mgmt/EmployeesList.dart';
+import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
 class EmployeesScreen extends HookConsumerWidget {
@@ -11,6 +13,10 @@ class EmployeesScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final stateNotifier =
+        ref.watch(employeeManagementStateNotifierProvider.notifier);
+    final state = ref.watch(employeeManagementStateNotifierProvider);
+
     return Scaffold(
       appBar: LGAppbar(
         title: 'Employee Management',
@@ -50,18 +56,25 @@ class EmployeesScreen extends HookConsumerWidget {
           right: 15,
           bottom: 55,
         ),
-        child: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: Wrap(
-                  children: const [
-                    EmployeesList(),
-                  ],
+        child: RefreshIndicator(
+          color: LGColors.primary_100,
+          onRefresh: () async {
+            stateNotifier.setEmployeeList();
+          },
+          child: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  child: Wrap(
+                    children: const [
+                      EmployeesList(),
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

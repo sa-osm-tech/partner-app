@@ -5,7 +5,17 @@ import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
 class EmployeesDriverCard extends StatelessWidget {
-  const EmployeesDriverCard({super.key});
+  final String firstName;
+  final String lastName;
+  final String email;
+  final String phoneNumber;
+  const EmployeesDriverCard({
+    super.key,
+    required this.firstName,
+    required this.lastName,
+    required this.phoneNumber,
+    required this.email,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -65,17 +75,17 @@ class EmployeesDriverCard extends StatelessWidget {
                         ),
                         const SizedBox(height: 14),
                         Text(
-                          'Makkins Li',
+                          '$firstName $lastName',
                           style: LGTextStyle.p3.black,
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          'makkinsli@gmail.com',
+                          email,
                           style: LGTextStyle.p3.secondary_50,
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          '(+66) 85-555-5555',
+                          '(+66) ${phoneNumber.substring(1)}',
                           style: LGTextStyle.p3.secondary_50,
                         ),
                       ],
