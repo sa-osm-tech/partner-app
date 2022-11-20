@@ -58,8 +58,7 @@ class PersonalInfoSection extends HookConsumerWidget {
                       style: LGTextStyle.p3.gray_70,
                     ),
                     Text(
-                      // '${state.profile!.firstname} ${state.profile!.lastname}',
-                      state.profile!.partner_name,
+                      '${state.profile!.first_name} ${state.profile!.last_name}',
                       style: LGTextStyle.p1.secondary_100,
                     ),
                   ],

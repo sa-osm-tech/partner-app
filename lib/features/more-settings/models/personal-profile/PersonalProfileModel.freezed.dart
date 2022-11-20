@@ -23,8 +23,8 @@ mixin _$PersonalProfileModel {
   String? get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get partner_name => throw _privateConstructorUsedError;
-  String get firstname => throw _privateConstructorUsedError;
-  String get lastname => throw _privateConstructorUsedError;
+  String get first_name => throw _privateConstructorUsedError;
+  String get last_name => throw _privateConstructorUsedError;
   String get phone_number => throw _privateConstructorUsedError;
   String get base_address => throw _privateConstructorUsedError;
   String get base_contact => throw _privateConstructorUsedError;
@@ -48,8 +48,8 @@ abstract class $PersonalProfileModelCopyWith<$Res> {
       {String? id,
       String email,
       String partner_name,
-      String firstname,
-      String lastname,
+      String first_name,
+      String last_name,
       String phone_number,
       String base_address,
       String base_contact,
@@ -73,8 +73,8 @@ class _$PersonalProfileModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? email = freezed,
     Object? partner_name = freezed,
-    Object? firstname = freezed,
-    Object? lastname = freezed,
+    Object? first_name = freezed,
+    Object? last_name = freezed,
     Object? phone_number = freezed,
     Object? base_address = freezed,
     Object? base_contact = freezed,
@@ -96,13 +96,13 @@ class _$PersonalProfileModelCopyWithImpl<$Res>
           ? _value.partner_name
           : partner_name // ignore: cast_nullable_to_non_nullable
               as String,
-      firstname: firstname == freezed
-          ? _value.firstname
-          : firstname // ignore: cast_nullable_to_non_nullable
+      first_name: first_name == freezed
+          ? _value.first_name
+          : first_name // ignore: cast_nullable_to_non_nullable
               as String,
-      lastname: lastname == freezed
-          ? _value.lastname
-          : lastname // ignore: cast_nullable_to_non_nullable
+      last_name: last_name == freezed
+          ? _value.last_name
+          : last_name // ignore: cast_nullable_to_non_nullable
               as String,
       phone_number: phone_number == freezed
           ? _value.phone_number
@@ -147,8 +147,8 @@ abstract class _$$_PersonalProfileModelCopyWith<$Res>
       {String? id,
       String email,
       String partner_name,
-      String firstname,
-      String lastname,
+      String first_name,
+      String last_name,
       String phone_number,
       String base_address,
       String base_contact,
@@ -174,8 +174,8 @@ class __$$_PersonalProfileModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? email = freezed,
     Object? partner_name = freezed,
-    Object? firstname = freezed,
-    Object? lastname = freezed,
+    Object? first_name = freezed,
+    Object? last_name = freezed,
     Object? phone_number = freezed,
     Object? base_address = freezed,
     Object? base_contact = freezed,
@@ -197,13 +197,13 @@ class __$$_PersonalProfileModelCopyWithImpl<$Res>
           ? _value.partner_name
           : partner_name // ignore: cast_nullable_to_non_nullable
               as String,
-      firstname: firstname == freezed
-          ? _value.firstname
-          : firstname // ignore: cast_nullable_to_non_nullable
+      first_name: first_name == freezed
+          ? _value.first_name
+          : first_name // ignore: cast_nullable_to_non_nullable
               as String,
-      lastname: lastname == freezed
-          ? _value.lastname
-          : lastname // ignore: cast_nullable_to_non_nullable
+      last_name: last_name == freezed
+          ? _value.last_name
+          : last_name // ignore: cast_nullable_to_non_nullable
               as String,
       phone_number: phone_number == freezed
           ? _value.phone_number
@@ -245,8 +245,8 @@ class _$_PersonalProfileModel implements _PersonalProfileModel {
       {this.id,
       this.email = '-',
       this.partner_name = '-',
-      this.firstname = '-',
-      this.lastname = '-',
+      this.first_name = '-',
+      this.last_name = '-',
       this.phone_number = '-',
       this.base_address = '-',
       this.base_contact = '-',
@@ -268,10 +268,10 @@ class _$_PersonalProfileModel implements _PersonalProfileModel {
   final String partner_name;
   @override
   @JsonKey()
-  final String firstname;
+  final String first_name;
   @override
   @JsonKey()
-  final String lastname;
+  final String last_name;
   @override
   @JsonKey()
   final String phone_number;
@@ -293,7 +293,7 @@ class _$_PersonalProfileModel implements _PersonalProfileModel {
 
   @override
   String toString() {
-    return 'PersonalProfileModel(id: $id, email: $email, partner_name: $partner_name, firstname: $firstname, lastname: $lastname, phone_number: $phone_number, base_address: $base_address, base_contact: $base_contact, is_available: $is_available, profile_picture_url: $profile_picture_url, status: $status, role: $role)';
+    return 'PersonalProfileModel(id: $id, email: $email, partner_name: $partner_name, first_name: $first_name, last_name: $last_name, phone_number: $phone_number, base_address: $base_address, base_contact: $base_contact, is_available: $is_available, profile_picture_url: $profile_picture_url, status: $status, role: $role)';
   }
 
   @override
@@ -305,8 +305,9 @@ class _$_PersonalProfileModel implements _PersonalProfileModel {
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality()
                 .equals(other.partner_name, partner_name) &&
-            const DeepCollectionEquality().equals(other.firstname, firstname) &&
-            const DeepCollectionEquality().equals(other.lastname, lastname) &&
+            const DeepCollectionEquality()
+                .equals(other.first_name, first_name) &&
+            const DeepCollectionEquality().equals(other.last_name, last_name) &&
             const DeepCollectionEquality()
                 .equals(other.phone_number, phone_number) &&
             const DeepCollectionEquality()
@@ -328,8 +329,8 @@ class _$_PersonalProfileModel implements _PersonalProfileModel {
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(partner_name),
-      const DeepCollectionEquality().hash(firstname),
-      const DeepCollectionEquality().hash(lastname),
+      const DeepCollectionEquality().hash(first_name),
+      const DeepCollectionEquality().hash(last_name),
       const DeepCollectionEquality().hash(phone_number),
       const DeepCollectionEquality().hash(base_address),
       const DeepCollectionEquality().hash(base_contact),
@@ -357,8 +358,8 @@ abstract class _PersonalProfileModel implements PersonalProfileModel {
       {final String? id,
       final String email,
       final String partner_name,
-      final String firstname,
-      final String lastname,
+      final String first_name,
+      final String last_name,
       final String phone_number,
       final String base_address,
       final String base_contact,
@@ -377,9 +378,9 @@ abstract class _PersonalProfileModel implements PersonalProfileModel {
   @override
   String get partner_name;
   @override
-  String get firstname;
+  String get first_name;
   @override
-  String get lastname;
+  String get last_name;
   @override
   String get phone_number;
   @override
