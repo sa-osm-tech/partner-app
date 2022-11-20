@@ -4,7 +4,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/LGFallbackDialog.dart';
 import 'package:logerex_partner/common_widgets/LGRedbutton.dart';
 import 'package:logerex_partner/features/home/screens/employees-mgmt/ShowPasswordScreen.dart';
+import 'package:logerex_partner/features/home/states/employees-mgmt/EmployeeManagementState.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
+import 'package:logerex_partner/utils/http/LGHttp.dart';
 import 'package:string_validator/string_validator.dart';
 
 class NewEmployeeForm extends HookConsumerWidget {
@@ -20,6 +22,9 @@ class NewEmployeeForm extends HookConsumerWidget {
     final emailUpdate = useValueListenable(emailTextController);
     final phoneNumberTextController = useTextEditingController();
     final phoneNumberUpdate = useValueListenable(phoneNumberTextController);
+
+    final stateNotifier =
+        ref.watch(employeeManagementStateNotifierProvider.notifier);
 
     useEffect(
       () {
@@ -142,7 +147,7 @@ class NewEmployeeForm extends HookConsumerWidget {
           text: 'Add Employee',
           onPressed: isButtonDisabled.value
               ? null
-              : () {
+              : () async {
                   final isValidForm = _formKey.currentState!.validate();
                   if (!isValidForm) {
                     showDialog(
@@ -155,12 +160,23 @@ class NewEmployeeForm extends HookConsumerWidget {
                     );
                     return;
                   }
-                  print(fullNameTextController.text);
-                  print(emailTextController.text);
-                  print(phoneNumberTextController.text);
+                  final email = emailTextController.text;
+                  final firstName = fullNameTextController.text.split(' ')[0];
+                  final lastName = fullNameTextController.text.split(' ')[1];
+                  final phoneNumber = '0${phoneNumberTextController.text}';
+                  final response = await LGHttp().createEmployee(
+                    email,
+                    firstName,
+                    lastName,
+                    phoneNumber,
+                  );
+                  stateNotifier.setEmployeeList();
+
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => const ShowPasswordScreen(),
+                      builder: (context) => ShowPasswordScreen(
+                        generatedPassword: response.password,
+                      ),
                     ),
                   );
                 },

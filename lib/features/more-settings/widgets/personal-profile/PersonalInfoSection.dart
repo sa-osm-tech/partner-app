@@ -19,8 +19,6 @@ class PersonalInfoSection extends HookConsumerWidget {
         case 0:
           return 'Owner';
         case 1:
-          return 'Manager';
-        case 2:
           return 'Driver';
         default:
           return '-';
