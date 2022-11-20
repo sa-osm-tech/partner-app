@@ -17,6 +17,7 @@ class EmployeeModel with _$EmployeeModel {
     @Default('-') String base_contact,
     @Default(false) bool is_available,
     String? profile_picture_url,
+    DateTime? create_at,
     int? status,
     int? role,
     @Default('-') String owner_id,

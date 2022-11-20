@@ -38,12 +38,7 @@ class EmployeesList extends HookConsumerWidget {
                 ),
                 ...state.employees!
                     .map(
-                      (e) => EmployeesDriverCard(
-                        firstName: e.first_name,
-                        lastName: e.last_name,
-                        email: e.email,
-                        phoneNumber: e.phone_number,
-                      ),
+                      (e) => EmployeesDriverCard(employee: e),
                     )
                     .toList(),
               ],

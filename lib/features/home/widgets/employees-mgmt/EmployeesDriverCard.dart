@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:logerex_partner/features/home/models/employee-mgmt/EmployeeModel.dart';
 import 'package:logerex_partner/features/home/screens/employees-mgmt/EmployeeInfoScreen.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
 class EmployeesDriverCard extends StatelessWidget {
-  final String firstName;
-  final String lastName;
-  final String email;
-  final String phoneNumber;
+  final EmployeeModel employee;
   const EmployeesDriverCard({
     super.key,
-    required this.firstName,
-    required this.lastName,
-    required this.phoneNumber,
-    required this.email,
+    required this.employee,
   });
 
   @override
@@ -25,7 +20,7 @@ class EmployeesDriverCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const EmployeeInfoScreen(),
+              builder: (context) => EmployeeInfoScreen(employee: employee),
             ),
           );
         },
@@ -75,17 +70,17 @@ class EmployeesDriverCard extends StatelessWidget {
                         ),
                         const SizedBox(height: 14),
                         Text(
-                          '$firstName $lastName',
+                          '${employee.first_name} ${employee.last_name}',
                           style: LGTextStyle.p3.black,
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          email,
+                          employee.email,
                           style: LGTextStyle.p3.secondary_50,
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          '(+66) ${phoneNumber.substring(1)}',
+                          '(+66) ${employee.phone_number.substring(1)}',
                           style: LGTextStyle.p3.secondary_50,
                         ),
                       ],

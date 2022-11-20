@@ -18,6 +18,9 @@ _$_EmployeeModel _$$_EmployeeModelFromJson(Map<String, dynamic> json) =>
       base_contact: json['base_contact'] as String? ?? '-',
       is_available: json['is_available'] as bool? ?? false,
       profile_picture_url: json['profile_picture_url'] as String?,
+      create_at: json['create_at'] == null
+          ? null
+          : DateTime.parse(json['create_at'] as String),
       status: json['status'] as int?,
       role: json['role'] as int?,
       owner_id: json['owner_id'] as String? ?? '-',
@@ -35,6 +38,7 @@ Map<String, dynamic> _$$_EmployeeModelToJson(_$_EmployeeModel instance) =>
       'base_contact': instance.base_contact,
       'is_available': instance.is_available,
       'profile_picture_url': instance.profile_picture_url,
+      'create_at': instance.create_at?.toIso8601String(),
       'status': instance.status,
       'role': instance.role,
       'owner_id': instance.owner_id,

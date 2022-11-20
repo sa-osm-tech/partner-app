@@ -30,6 +30,7 @@ mixin _$EmployeeModel {
   String get base_contact => throw _privateConstructorUsedError;
   bool get is_available => throw _privateConstructorUsedError;
   String? get profile_picture_url => throw _privateConstructorUsedError;
+  DateTime? get create_at => throw _privateConstructorUsedError;
   int? get status => throw _privateConstructorUsedError;
   int? get role => throw _privateConstructorUsedError;
   String get owner_id => throw _privateConstructorUsedError;
@@ -56,6 +57,7 @@ abstract class $EmployeeModelCopyWith<$Res> {
       String base_contact,
       bool is_available,
       String? profile_picture_url,
+      DateTime? create_at,
       int? status,
       int? role,
       String owner_id});
@@ -82,6 +84,7 @@ class _$EmployeeModelCopyWithImpl<$Res>
     Object? base_contact = freezed,
     Object? is_available = freezed,
     Object? profile_picture_url = freezed,
+    Object? create_at = freezed,
     Object? status = freezed,
     Object? role = freezed,
     Object? owner_id = freezed,
@@ -127,6 +130,10 @@ class _$EmployeeModelCopyWithImpl<$Res>
           ? _value.profile_picture_url
           : profile_picture_url // ignore: cast_nullable_to_non_nullable
               as String?,
+      create_at: create_at == freezed
+          ? _value.create_at
+          : create_at // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -161,6 +168,7 @@ abstract class _$$_EmployeeModelCopyWith<$Res>
       String base_contact,
       bool is_available,
       String? profile_picture_url,
+      DateTime? create_at,
       int? status,
       int? role,
       String owner_id});
@@ -189,6 +197,7 @@ class __$$_EmployeeModelCopyWithImpl<$Res>
     Object? base_contact = freezed,
     Object? is_available = freezed,
     Object? profile_picture_url = freezed,
+    Object? create_at = freezed,
     Object? status = freezed,
     Object? role = freezed,
     Object? owner_id = freezed,
@@ -234,6 +243,10 @@ class __$$_EmployeeModelCopyWithImpl<$Res>
           ? _value.profile_picture_url
           : profile_picture_url // ignore: cast_nullable_to_non_nullable
               as String?,
+      create_at: create_at == freezed
+          ? _value.create_at
+          : create_at // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -265,6 +278,7 @@ class _$_EmployeeModel implements _EmployeeModel {
       this.base_contact = '-',
       this.is_available = false,
       this.profile_picture_url,
+      this.create_at,
       this.status,
       this.role,
       this.owner_id = '-'});
@@ -301,6 +315,8 @@ class _$_EmployeeModel implements _EmployeeModel {
   @override
   final String? profile_picture_url;
   @override
+  final DateTime? create_at;
+  @override
   final int? status;
   @override
   final int? role;
@@ -310,7 +326,7 @@ class _$_EmployeeModel implements _EmployeeModel {
 
   @override
   String toString() {
-    return 'EmployeeModel(id: $id, email: $email, partner_name: $partner_name, first_name: $first_name, last_name: $last_name, phone_number: $phone_number, base_address: $base_address, base_contact: $base_contact, is_available: $is_available, profile_picture_url: $profile_picture_url, status: $status, role: $role, owner_id: $owner_id)';
+    return 'EmployeeModel(id: $id, email: $email, partner_name: $partner_name, first_name: $first_name, last_name: $last_name, phone_number: $phone_number, base_address: $base_address, base_contact: $base_contact, is_available: $is_available, profile_picture_url: $profile_picture_url, create_at: $create_at, status: $status, role: $role, owner_id: $owner_id)';
   }
 
   @override
@@ -335,6 +351,7 @@ class _$_EmployeeModel implements _EmployeeModel {
                 .equals(other.is_available, is_available) &&
             const DeepCollectionEquality()
                 .equals(other.profile_picture_url, profile_picture_url) &&
+            const DeepCollectionEquality().equals(other.create_at, create_at) &&
             const DeepCollectionEquality().equals(other.status, status) &&
             const DeepCollectionEquality().equals(other.role, role) &&
             const DeepCollectionEquality().equals(other.owner_id, owner_id));
@@ -354,6 +371,7 @@ class _$_EmployeeModel implements _EmployeeModel {
       const DeepCollectionEquality().hash(base_contact),
       const DeepCollectionEquality().hash(is_available),
       const DeepCollectionEquality().hash(profile_picture_url),
+      const DeepCollectionEquality().hash(create_at),
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(role),
       const DeepCollectionEquality().hash(owner_id));
@@ -383,6 +401,7 @@ abstract class _EmployeeModel implements EmployeeModel {
       final String base_contact,
       final bool is_available,
       final String? profile_picture_url,
+      final DateTime? create_at,
       final int? status,
       final int? role,
       final String owner_id}) = _$_EmployeeModel;
@@ -410,6 +429,8 @@ abstract class _EmployeeModel implements EmployeeModel {
   bool get is_available;
   @override
   String? get profile_picture_url;
+  @override
+  DateTime? get create_at;
   @override
   int? get status;
   @override
