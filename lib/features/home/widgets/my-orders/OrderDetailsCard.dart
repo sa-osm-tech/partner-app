@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
 class OrderDetailsCard extends StatelessWidget {
-  const OrderDetailsCard({super.key});
+  final String orderId;
+  final String vehicleType;
+  final int price;
+  final int weight;
+  final String phoneNumber;
+  final DateTime startTime;
+  final String startAddress;
+  final String destinationAddress;
+  final String details;
+  const OrderDetailsCard({
+    super.key,
+    required this.orderId,
+    required this.vehicleType,
+    required this.price,
+    required this.weight,
+    required this.phoneNumber,
+    required this.startTime,
+    required this.startAddress,
+    required this.destinationAddress,
+    required this.details,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,34 +64,20 @@ class OrderDetailsCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'L4-023959-001',
+                    'Order ID:',
                     style: LGTextStyle.p3.secondary_50,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      print('Navigate to google maps');
-                    },
-                    child: Row(
-                      children: [
-                        Text('Google Map', style: LGTextStyle.p3.action_100),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        const FaIcon(
-                          FontAwesomeIcons.upRightFromSquare,
-                          size: 16,
-                          color: LGColors.action_100,
-                        )
-                      ],
-                    ),
-                  )
+                  Text(
+                    orderId,
+                    style: LGTextStyle.p3.secondary_50,
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 5,
               ),
               Text(
-                'รถเทรลเลอร์พื้นเรียบ',
+                vehicleType,
                 style: LGTextStyle.subheading1.black,
               ),
               const SizedBox(height: 15),
@@ -83,7 +90,7 @@ class OrderDetailsCard extends StatelessWidget {
                       size: 12,
                       color: LGColors.primary_100,
                     ),
-                    '50,000 Baht',
+                    '$price Baht',
                   ),
                   orderInfo(
                     const FaIcon(
@@ -91,7 +98,7 @@ class OrderDetailsCard extends StatelessWidget {
                       size: 12,
                       color: LGColors.primary_100,
                     ),
-                    '500 kg',
+                    '$weight kg',
                   ),
                   orderInfo(
                     const FaIcon(
@@ -99,7 +106,7 @@ class OrderDetailsCard extends StatelessWidget {
                       size: 12,
                       color: LGColors.primary_100,
                     ),
-                    '(+66) 95-555-5555',
+                    '(+66) ${phoneNumber.substring(1)}',
                   ),
                   orderInfo(
                     const FaIcon(
@@ -107,7 +114,9 @@ class OrderDetailsCard extends StatelessWidget {
                       size: 12,
                       color: LGColors.primary_100,
                     ),
-                    '2 Oct 2022 12:00',
+                    DateFormat('dd/MM/yyyy HH:mm', 'th')
+                        .format(startTime)
+                        .toString(),
                   ),
                   orderInfo(
                     const FaIcon(
@@ -115,7 +124,7 @@ class OrderDetailsCard extends StatelessWidget {
                       size: 12,
                       color: LGColors.primary_100,
                     ),
-                    'From:\nซอย หม่อมแผ้ว 3 แขวง สามเสนใน เขตพญาไท กรุงเทพมหานคร 10400',
+                    'From:\n$startAddress',
                   ),
                   orderInfo(
                     const FaIcon(
@@ -123,7 +132,7 @@ class OrderDetailsCard extends StatelessWidget {
                       size: 12,
                       color: LGColors.primary_100,
                     ),
-                    'To:\nหมู่ที่ 8 123 ถนน ศรีนครินทร์ ตำบล บางเมือง อำเภอเมืองสมุทรปราการ สมุทรปราการ 10270',
+                    'To:\n$destinationAddress',
                   ),
                   orderInfo(
                     const FaIcon(
@@ -131,7 +140,7 @@ class OrderDetailsCard extends StatelessWidget {
                       size: 12,
                       color: LGColors.primary_100,
                     ),
-                    'Details:\nสินค้าชนิดแห้ง แตกหักได้ยาก เก็บในอุณหภูมิห้อง 20-27 เซลเซียส จำเป็นต้องใช้รถบรรทุกควบคุมอุณหภูมิ สินค้ามีทั้งหมด 5 ลัง แต่ละลังมีขนาด 1m x 1m x 1m',
+                    'Details:\n$details',
                   ),
                 ],
               ),

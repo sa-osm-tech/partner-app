@@ -14,7 +14,7 @@ class NotStartedScreen extends HookConsumerWidget {
         child: Wrap(
           runSpacing: 20,
           children: const [
-            MyOrderList(),
+            MyOrderList(type: "Not Started"),
           ],
         ),
       ),

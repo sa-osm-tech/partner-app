@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
 class OrderDetailsDriverCardSection extends StatelessWidget {
-  const OrderDetailsDriverCardSection({super.key});
+  final String driverFirstName;
+  final String driverLastName;
+
+  const OrderDetailsDriverCardSection({
+    super.key,
+    required this.driverFirstName,
+    required this.driverLastName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,37 +43,11 @@ class OrderDetailsDriverCardSection extends StatelessWidget {
                 ),
                 Expanded(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          const FaIcon(
-                            FontAwesomeIcons.solidCircle,
-                            size: 6,
-                            color: LGColors.primary_100,
-                          ),
-                          const SizedBox(width: 5),
-                          Text(
-                            'Available',
-                            style: LGTextStyle.subheading1.primary_100,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 14),
                       Text(
-                        'Makkins Li',
+                        '$driverFirstName $driverLastName',
                         style: LGTextStyle.p3.black,
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'makkins@gmail.com',
-                        style: LGTextStyle.p3.secondary_50,
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        '(+66) 85-555-5555',
-                        style: LGTextStyle.p3.secondary_50,
                       ),
                     ],
                   ),
