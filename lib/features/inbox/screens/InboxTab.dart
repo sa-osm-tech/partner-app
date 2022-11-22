@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/features/inbox/screens/InboxScreen.dart';
+import 'package:logerex_partner/features/inbox/states/InboxState.dart';
 import 'package:logerex_partner/features/inbox/widgets/InboxAppBar.dart';
 import 'package:logerex_partner/features/inbox/widgets/NotificationCard.dart';
+import 'package:logerex_partner/features/more-settings/states/personal-profile/PersonalProfileState.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
@@ -22,59 +24,41 @@ class Notification {
 }
 
 class InboxTab extends HookConsumerWidget {
-  final List<Notification> orderNotification;
   final List<Notification> accountNotification;
 
-  int get unreadNotiNum {
-    return orderNotification.where((e) => !e.isRead).length +
-        accountNotification.where((e) => !e.isRead).length;
-  }
+  // int get unreadNotiNum {
+  //   return orderNotification.where((e) => !e.isRead).length +
+  //       accountNotification.where((e) => !e.isRead).length;
+  // }
 
   const InboxTab({
     super.key,
-    this.orderNotification = const <Notification>[
-      Notification(
-        title: 'A new order has been assigned to you',
-        body:
-            'Order LG-3003 รถเทรลเลอร์พื้นเรียบ\nFrom สมุทรปราการ To เชียงใหม่',
-        type: 'new_order_assigned',
-        isRead: false,
-      ),
-      Notification(
-        title: 'You have recently accepted order',
-        body: 'Order LG-4003 รถกระบะ\nFrom สี่ย่าน To สามย่าน',
-        type: 'new_order_accepted',
-        isRead: false,
-      ),
-      Notification(
-        title: 'You have recently accepted order',
-        body: 'Order LG-4200 รถสิบล้อ\nFrom ห้าย่าน To สองย่าน',
-        type: 'new_order_accepted',
-        isRead: false,
-      ),
-      Notification(
-        title: 'A new order has been assigned to you',
-        body: 'Order LG-3692 รถแทร็กเตอร์\nFrom อยุธยา To นราธิวาส',
-        type: 'new_order_assigned',
-        isRead: true,
-      ),
-      Notification(
-        title: 'Driver สุชาติ has been successfully delivered order',
-        body: 'Order LG-4242 รถกระบะ\nFrom สี่ย่าน To สามย่าน',
-        type: 'order_success',
-        isRead: false,
-      ),
-    ],
     this.accountNotification = const <Notification>[],
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final stateNotifier = ref.watch(inboxStateNotifierProvider.notifier);
+    final state = ref.watch(inboxStateNotifierProvider);
+    final personalProfileStateNotifier =
+        ref.watch(personalProfileStateNotifierProvider.notifier);
+    final personalProfileState =
+        ref.watch(personalProfileStateNotifierProvider);
+    useEffect(
+      () {
+        stateNotifier.setNotifications(
+          personalProfileState.profile!.id!,
+          personalProfileState.profile!.role!,
+        );
+        return null;
+      },
+      [],
+    );
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: InboxAppbar(
-          notiNum: unreadNotiNum,
+          // notiNum: unreadNotiNum,
           bottom: TabBar(
             indicatorColor: LGColors.black,
             labelStyle: LGTextStyle.h5.black,
@@ -95,13 +79,13 @@ class InboxTab extends HookConsumerWidget {
         body: TabBarView(
           children: [
             InboxScreen(
-              children: orderNotification
+              children: state.notifications
                   .map(
                     (e) => NotificationCard(
-                      title: e.title,
-                      body: e.body,
-                      isRead: e.isRead,
-                      type: e.type,
+                      title: e.event_name,
+                      body: e.order_id,
+                      isRead: e.is_read,
+                      type: e.event_name,
                     ),
                   )
                   .toList(),

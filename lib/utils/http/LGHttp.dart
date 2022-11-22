@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:logerex_partner/features/home/models/employee-mgmt/CreateEmployeeModel.dart';
 import 'package:logerex_partner/features/home/models/employee-mgmt/EmployeeModel.dart';
 import 'package:logerex_partner/features/home/models/new-order/OrderModel.dart';
+import 'package:logerex_partner/features/inbox/models/NotificationModel.dart';
 import 'package:logerex_partner/features/login/models/LoginModel.dart';
 import 'package:logerex_partner/features/more-settings/models/personal-profile/PersonalProfileModel.dart';
 import 'package:logerex_partner/preferences/UserPreferences.dart';
@@ -164,6 +165,7 @@ class LGHttp {
     }
   }
 
+  // Order
   Future<List<OrderModel>> getOrderPool() async {
     try {
       final token = await UserPreferences().getToken();
@@ -302,6 +304,29 @@ class LGHttp {
       return false;
     } catch (e) {
       return false;
+    }
+  }
+
+  // Notification
+  Future<List<NotificationModel>> getNotifications(String id, int role) async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.get(
+        '${LGEndpoints.notificationPath}/$id',
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+        queryParameters: {
+          'role': role.toString(),
+        },
+      );
+      final data = List<dynamic>.from(response.data['data']);
+      final result = data.map((e) => NotificationModel.fromJson(e)).toList();
+      return result;
+    } on DioError catch (e) {
+      // print(e.response?.data);
+      // return false;
+      rethrow;
+    } catch (e) {
+      rethrow;
     }
   }
 }

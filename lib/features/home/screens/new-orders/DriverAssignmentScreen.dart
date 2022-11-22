@@ -54,9 +54,6 @@ class DriverAssignmentScreen extends HookConsumerWidget {
               text: 'Confirm Order',
               onPressed: state.toBeAssignedDriver != null
                   ? () async {
-                      print(toBeAssignedOrder);
-                      print(state.toBeAssignedDriver);
-
                       showDialog(
                         context: context,
                         builder: (BuildContext context) => LGActionAlertDialog(
