@@ -182,4 +182,36 @@ class LGHttp {
       rethrow;
     }
   }
+
+  Future<bool> assignOrder(
+    String orderId,
+    String driverFirstName,
+    String driverId,
+    String driverLastName,
+    String ownerId,
+  ) async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.post(
+        '${LGEndpoints.orderPath}/orders/assign/$orderId',
+        data: {
+          'driver_first_name': driverFirstName,
+          'driver_id': driverId,
+          'driver_last_name': driverLastName,
+          'owner_id': ownerId,
+        },
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
+      print(response);
+      if (response.data['status']) {
+        return true;
+      }
+      return false;
+    } on DioError catch (e) {
+      // print(e.response?.data);
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
 }

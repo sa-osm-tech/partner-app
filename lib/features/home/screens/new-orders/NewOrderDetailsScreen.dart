@@ -62,7 +62,9 @@ class NewOrderDetailsScreen extends HookConsumerWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const DriverAssignmentScreen(),
+                      builder: (context) => DriverAssignmentScreen(
+                        toBeAssignedOrder: newOrder,
+                      ),
                     ),
                   );
                 },

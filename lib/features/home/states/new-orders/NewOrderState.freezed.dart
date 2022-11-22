@@ -17,6 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$NewOrderState {
   List<OrderModel>? get newOrders => throw _privateConstructorUsedError;
+  EmployeeModel? get toBeAssignedDriver => throw _privateConstructorUsedError;
+  List<EmployeeModel>? get employees => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NewOrderStateCopyWith<NewOrderState> get copyWith =>
@@ -28,7 +30,12 @@ abstract class $NewOrderStateCopyWith<$Res> {
   factory $NewOrderStateCopyWith(
           NewOrderState value, $Res Function(NewOrderState) then) =
       _$NewOrderStateCopyWithImpl<$Res>;
-  $Res call({List<OrderModel>? newOrders});
+  $Res call(
+      {List<OrderModel>? newOrders,
+      EmployeeModel? toBeAssignedDriver,
+      List<EmployeeModel>? employees});
+
+  $EmployeeModelCopyWith<$Res>? get toBeAssignedDriver;
 }
 
 /// @nodoc
@@ -43,13 +50,34 @@ class _$NewOrderStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? newOrders = freezed,
+    Object? toBeAssignedDriver = freezed,
+    Object? employees = freezed,
   }) {
     return _then(_value.copyWith(
       newOrders: newOrders == freezed
           ? _value.newOrders
           : newOrders // ignore: cast_nullable_to_non_nullable
               as List<OrderModel>?,
+      toBeAssignedDriver: toBeAssignedDriver == freezed
+          ? _value.toBeAssignedDriver
+          : toBeAssignedDriver // ignore: cast_nullable_to_non_nullable
+              as EmployeeModel?,
+      employees: employees == freezed
+          ? _value.employees
+          : employees // ignore: cast_nullable_to_non_nullable
+              as List<EmployeeModel>?,
     ));
+  }
+
+  @override
+  $EmployeeModelCopyWith<$Res>? get toBeAssignedDriver {
+    if (_value.toBeAssignedDriver == null) {
+      return null;
+    }
+
+    return $EmployeeModelCopyWith<$Res>(_value.toBeAssignedDriver!, (value) {
+      return _then(_value.copyWith(toBeAssignedDriver: value));
+    });
   }
 }
 
@@ -60,7 +88,13 @@ abstract class _$$_NewOrderStateCopyWith<$Res>
           _$_NewOrderState value, $Res Function(_$_NewOrderState) then) =
       __$$_NewOrderStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<OrderModel>? newOrders});
+  $Res call(
+      {List<OrderModel>? newOrders,
+      EmployeeModel? toBeAssignedDriver,
+      List<EmployeeModel>? employees});
+
+  @override
+  $EmployeeModelCopyWith<$Res>? get toBeAssignedDriver;
 }
 
 /// @nodoc
@@ -77,12 +111,22 @@ class __$$_NewOrderStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? newOrders = freezed,
+    Object? toBeAssignedDriver = freezed,
+    Object? employees = freezed,
   }) {
     return _then(_$_NewOrderState(
       newOrders: newOrders == freezed
           ? _value._newOrders
           : newOrders // ignore: cast_nullable_to_non_nullable
               as List<OrderModel>?,
+      toBeAssignedDriver: toBeAssignedDriver == freezed
+          ? _value.toBeAssignedDriver
+          : toBeAssignedDriver // ignore: cast_nullable_to_non_nullable
+              as EmployeeModel?,
+      employees: employees == freezed
+          ? _value._employees
+          : employees // ignore: cast_nullable_to_non_nullable
+              as List<EmployeeModel>?,
     ));
   }
 }
@@ -90,8 +134,12 @@ class __$$_NewOrderStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_NewOrderState implements _NewOrderState {
-  const _$_NewOrderState({final List<OrderModel>? newOrders})
-      : _newOrders = newOrders;
+  const _$_NewOrderState(
+      {final List<OrderModel>? newOrders,
+      this.toBeAssignedDriver,
+      final List<EmployeeModel>? employees})
+      : _newOrders = newOrders,
+        _employees = employees;
 
   final List<OrderModel>? _newOrders;
   @override
@@ -103,8 +151,19 @@ class _$_NewOrderState implements _NewOrderState {
   }
 
   @override
+  final EmployeeModel? toBeAssignedDriver;
+  final List<EmployeeModel>? _employees;
+  @override
+  List<EmployeeModel>? get employees {
+    final value = _employees;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
   String toString() {
-    return 'NewOrderState(newOrders: $newOrders)';
+    return 'NewOrderState(newOrders: $newOrders, toBeAssignedDriver: $toBeAssignedDriver, employees: $employees)';
   }
 
   @override
@@ -113,12 +172,19 @@ class _$_NewOrderState implements _NewOrderState {
         (other.runtimeType == runtimeType &&
             other is _$_NewOrderState &&
             const DeepCollectionEquality()
-                .equals(other._newOrders, _newOrders));
+                .equals(other._newOrders, _newOrders) &&
+            const DeepCollectionEquality()
+                .equals(other.toBeAssignedDriver, toBeAssignedDriver) &&
+            const DeepCollectionEquality()
+                .equals(other._employees, _employees));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_newOrders));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_newOrders),
+      const DeepCollectionEquality().hash(toBeAssignedDriver),
+      const DeepCollectionEquality().hash(_employees));
 
   @JsonKey(ignore: true)
   @override
@@ -127,11 +193,17 @@ class _$_NewOrderState implements _NewOrderState {
 }
 
 abstract class _NewOrderState implements NewOrderState {
-  const factory _NewOrderState({final List<OrderModel>? newOrders}) =
-      _$_NewOrderState;
+  const factory _NewOrderState(
+      {final List<OrderModel>? newOrders,
+      final EmployeeModel? toBeAssignedDriver,
+      final List<EmployeeModel>? employees}) = _$_NewOrderState;
 
   @override
   List<OrderModel>? get newOrders;
+  @override
+  EmployeeModel? get toBeAssignedDriver;
+  @override
+  List<EmployeeModel>? get employees;
   @override
   @JsonKey(ignore: true)
   _$$_NewOrderStateCopyWith<_$_NewOrderState> get copyWith =>
