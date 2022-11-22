@@ -7,6 +7,7 @@ import 'package:logerex_partner/common_widgets/PasswordTextField.dart';
 import 'package:logerex_partner/common_widgets/main/screens/MainScreen.dart';
 import 'package:logerex_partner/constants/LGEnums.dart';
 import 'package:logerex_partner/features/login/states/LoginState.dart';
+import 'package:logerex_partner/features/more-settings/states/personal-profile/PersonalProfileState.dart';
 import 'package:logerex_partner/preferences/UserPreferences.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
@@ -26,6 +27,9 @@ class LoginModal extends HookConsumerWidget {
     final usernameUpdate = useValueListenable(usernameTextController);
     final passwordTextController = useTextEditingController();
     final passwordUpdate = useValueListenable(passwordTextController);
+
+    final personalProfileStateNotifier =
+        ref.watch(personalProfileStateNotifierProvider.notifier);
 
     useEffect(
       () {
@@ -114,6 +118,7 @@ class LoginModal extends HookConsumerWidget {
                             return;
                           }
                           final token = await UserPreferences().getToken();
+                          await personalProfileStateNotifier.getUserProfile();
                           if (token != null) {
                             Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(

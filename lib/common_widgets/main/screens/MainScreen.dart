@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/main/states/MainState.dart';
 import 'package:logerex_partner/features/home/screens/HomeTab.dart';
 import 'package:logerex_partner/features/inbox/screens/InboxTab.dart';
+import 'package:logerex_partner/features/inbox/states/InboxState.dart';
 import 'package:logerex_partner/features/more-settings/screens/MoreSettingsTab.dart';
 import 'package:logerex_partner/features/more-settings/states/personal-profile/PersonalProfileState.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
@@ -18,9 +19,13 @@ class MainScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final stateNotifier = ref.watch(mainStateNotifierProvider.notifier);
     final state = ref.watch(mainStateNotifierProvider);
+    final inboxStateNotifier = ref.watch(inboxStateNotifierProvider.notifier);
+    final inboxState = ref.watch(inboxStateNotifierProvider);
 
     final personalProfileStateNotifier =
         ref.watch(personalProfileStateNotifierProvider.notifier);
+    final personalProfileState =
+        ref.watch(personalProfileStateNotifierProvider);
     final tabsList = useMemoized(
       () => [
         const HomeTab(),
@@ -35,7 +40,7 @@ class MainScreen extends HookConsumerWidget {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           stateNotifier.setSelectedTab(0);
         });
-        personalProfileStateNotifier.getUserProfile();
+        // personalProfileStateNotifier.getUserProfile();
         return null;
       },
       [],

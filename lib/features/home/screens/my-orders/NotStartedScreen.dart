@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logerex_partner/features/home/states/my-orders/MyOrderState.dart';
 import 'package:logerex_partner/features/home/widgets/my-orders/MyOrderList.dart';
 
 class NotStartedScreen extends HookConsumerWidget {
@@ -7,7 +8,13 @@ class NotStartedScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // return const EmptyDisplay();
+    final state = ref.watch(myOrderStateNotifierProvider);
+    // if (state.notStartedOrders.isEmpty) {
+    //   return const EmptyDisplay(
+    //     detail: 'Hmm... Looks like there are no orders here.',
+    //     suggestionDetail: 'Try updating / accepting some orders',
+    //   );
+    // } else {
     return Padding(
       padding: const EdgeInsets.only(top: 30, right: 15, bottom: 70, left: 15),
       child: SingleChildScrollView(
@@ -19,5 +26,6 @@ class NotStartedScreen extends HookConsumerWidget {
         ),
       ),
     );
+    // }
   }
 }

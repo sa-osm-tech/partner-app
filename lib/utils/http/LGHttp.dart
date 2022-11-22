@@ -173,6 +173,7 @@ class LGHttp {
         '${LGEndpoints.orderPath}/orders/all',
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );
+      if (response.data['data']['orders'] == null) return [];
       final data = List<dynamic>.from(response.data['data']['orders']);
       final result = data.map((e) => OrderModel.fromJson(e)).toList();
       return result;

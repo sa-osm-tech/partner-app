@@ -19,7 +19,6 @@ class MyOrderStateNotifier extends StateNotifier<MyOrderState> {
 
   Future<void> setNotStartedOrders(String id, int role) async {
     final response = await LGHttp().getNotStartedOrder(id, role);
-    print(response);
     state = state.copyWith(notStartedOrders: response);
   }
 
