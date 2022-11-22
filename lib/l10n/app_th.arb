@@ -1,5 +1,7 @@
 {
   "language": "ภาษาไทย",
+
+
   "login_sign_in_title": "Sign In",
   "login_username_hint_text": "Username",
   "login_password_hint_text": "Password",
@@ -10,8 +12,65 @@
   "login_forgot_password_email": "Email",
   "login_forgot_password_sent_req": "Send Request",
   "login_forgot_password_back": "< Back",
+
+
   "main_bottom_tabbar_home": "Home",
   "main_bottom_tabbar_payment": "Payment",
   "main_bottom_tabbar_inbox": "Inbox",
-  "main_bottom_tabbar_more": "More"
+  "main_bottom_tabbar_more": "More",
+
+
+  "more_settings_notice": "New to the app? Here’s a quick guide on how to make full use of Logerex.",
+  "more_settings_business_hours_option": "Business Hours",
+  "more_settings_base_contact_option": "Base Contact",
+  "more_settings_base_address_option": "Base Address",
+  "more_settings_help_and_support_group_title": "Help and support",
+  "more_settings_help_and_support_group_item_help_center": "Help center",
+  "more_settings_help_and_support_group_item_contact_logerex": "Contact Logerex",
+  "more_settings_account_group_title": "Account",
+  "more_settings_account_group_item_personal_profile": "Personal profile",
+  "more_settings_account_group_item_bank_account": "Bank account",
+  "more_settings_account_group_item_notification": "Notification",
+  "more_settings_account_group_item_app_settings": "App settings",
+  "more_settings_account_group_item_sign_out": "Sign out",
+
+
+  "personal_profile_title":"Personal Profile",
+  "personal_profile_personal_info_group_title":"Personal info",
+  "personal_profile_personal_info_group_item_name":"Name",
+  "personal_profile_personal_info_group_item_email":"Email",
+  "personal_profile_personal_info_group_item_role":"Role", 
+  "personal_profile_personal_info_group_item_change_password":"Change Password",
+  "personal_profile_contact_info_group_title":"Contact info",
+  "personal_profile_contact_info_group_item_email":"Email",
+  "personal_profile_contact_info_group_item_phone_no":"Phone Number",
+  "personal_profile_others_group_title":"Others",
+  "personal_profile_others_group_item_delete_account":"Delete account",
+  "personal_profile_submit_update_request":"Submit Update Request",
+
+
+  "change_password_appbar_title":"Change Password",
+  "change_password_appbar_next_action":"Next",
+  "change_password_verify_label":"Verify your identity to continue",
+  "change_password_password_helper_text":"Password",
+  "change_password_password_forgot_password":"Forgot your password?",
+  "change_password_strong_password_recommend":"Set a strong password that’s unique to this account and easy to remember.",
+  "change_password_new_password_hint_text":"New password",
+  "change_password_confirm_password_hint_text":"Confirm password",
+  "change_password_button_change_password":"Change Password",
+
+
+  "change_phone_no_appbar_title":"Phone Number",
+  "change_phone_no_save_action":"Save",
+  "change_phone_no_desc":"If we need to contact you, we may use this number to do so.",
+  "change_phone_no_textfield_label":"Phone Number",
+  "change_phone_no_textfield_hint_text":"Please enter your phone number",
+
+
+  "home_tab_hello_title":"Hello",
+  "home_tab_banner_text":"Learn how to use the app features",
+  "home_tab_my_orders_button":"My Orders",
+  "home_tab_new_orders_button":"New Orders",
+  "home_tab_employees_button":"Employees",
+  "home_tab_feedback_button":"Feedback"
 }

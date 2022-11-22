@@ -5,8 +5,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logerex_partner/common_widgets/main/states/MainState.dart';
 import 'package:logerex_partner/features/home/screens/HomeTab.dart';
 import 'package:logerex_partner/features/inbox/screens/InboxTab.dart';
-import 'package:logerex_partner/features/more/screens/MoreTab.dart';
-import 'package:logerex_partner/features/payment/screens/PaymentTab.dart';
+import 'package:logerex_partner/features/inbox/states/InboxState.dart';
+import 'package:logerex_partner/features/more-settings/screens/MoreSettingsTab.dart';
+import 'package:logerex_partner/features/more-settings/states/personal-profile/PersonalProfileState.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
@@ -18,18 +19,28 @@ class MainScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final stateNotifier = ref.watch(mainStateNotifierProvider.notifier);
     final state = ref.watch(mainStateNotifierProvider);
+    final inboxStateNotifier = ref.watch(inboxStateNotifierProvider.notifier);
+    final inboxState = ref.watch(inboxStateNotifierProvider);
 
+    final personalProfileStateNotifier =
+        ref.watch(personalProfileStateNotifierProvider.notifier);
+    final personalProfileState =
+        ref.watch(personalProfileStateNotifierProvider);
     final tabsList = useMemoized(
       () => [
         const HomeTab(),
-        const PaymentTab(),
+        // const PaymentTab(),
         const InboxTab(),
-        const MoreTab(),
+        const MoreSettingsTab(),
       ],
     );
 
     useEffect(
       () {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          stateNotifier.setSelectedTab(0);
+        });
+        // personalProfileStateNotifier.getUserProfile();
         return null;
       },
       [],
@@ -54,16 +65,16 @@ class MainScreen extends HookConsumerWidget {
             ),
             label: context.l10n.main_bottom_tabbar_home,
           ),
-          BottomNavigationBarItem(
-            icon: const Padding(
-              padding: EdgeInsets.all(4.0),
-              child: FaIcon(
-                FontAwesomeIcons.creditCard,
-                size: 24,
-              ),
-            ),
-            label: context.l10n.main_bottom_tabbar_payment,
-          ),
+          // BottomNavigationBarItem(
+          //   icon: const Padding(
+          //     padding: EdgeInsets.all(4.0),
+          //     child: FaIcon(
+          //       FontAwesomeIcons.creditCard,
+          //       size: 24,
+          //     ),
+          //   ),
+          //   label: context.l10n.main_bottom_tabbar_payment,
+          // ),
           BottomNavigationBarItem(
             icon: const Padding(
               padding: EdgeInsets.all(4.0),

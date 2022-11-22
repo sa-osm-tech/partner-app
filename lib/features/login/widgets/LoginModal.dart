@@ -1,21 +1,24 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logerex_partner/common_widgets/LGFallbackDialog.dart';
+import 'package:logerex_partner/common_widgets/PasswordTextField.dart';
 import 'package:logerex_partner/common_widgets/main/screens/MainScreen.dart';
 import 'package:logerex_partner/constants/LGEnums.dart';
 import 'package:logerex_partner/features/login/states/LoginState.dart';
+import 'package:logerex_partner/features/more-settings/states/personal-profile/PersonalProfileState.dart';
+import 'package:logerex_partner/preferences/UserPreferences.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 import 'package:logerex_partner/utils/LGLocalization.dart';
+import 'package:logerex_partner/utils/http/LGHttp.dart';
 
 class LoginModal extends HookConsumerWidget {
   const LoginModal({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isObscured = useState(true);
     final isButtonDisabled = useState(true);
 
     final stateNotifier = ref.watch(loginStateNotifierProvider.notifier);
@@ -24,6 +27,9 @@ class LoginModal extends HookConsumerWidget {
     final usernameUpdate = useValueListenable(usernameTextController);
     final passwordTextController = useTextEditingController();
     final passwordUpdate = useValueListenable(passwordTextController);
+
+    final personalProfileStateNotifier =
+        ref.watch(personalProfileStateNotifierProvider.notifier);
 
     useEffect(
       () {
@@ -72,35 +78,8 @@ class LoginModal extends HookConsumerWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                TextField(
-                  controller: passwordTextController,
-                  obscureText: isObscured.value,
-                  style: LGTextStyle.p1.black,
-                  decoration: InputDecoration(
-                    hintStyle: LGTextStyle.p1.gray_50,
-                    hintText: context.l10n.login_password_hint_text,
-                    suffixIcon: Align(
-                      alignment: Alignment.centerRight,
-                      widthFactor: 1,
-                      heightFactor: 1,
-                      child: IconButton(
-                        icon: isObscured.value
-                            ? const FaIcon(
-                                FontAwesomeIcons.eyeSlash,
-                                size: 16,
-                                color: LGColors.gray_70,
-                              )
-                            : const FaIcon(
-                                FontAwesomeIcons.eye,
-                                size: 16,
-                                color: LGColors.gray_70,
-                              ),
-                        onPressed: () {
-                          isObscured.value = !isObscured.value;
-                        },
-                      ),
-                    ),
-                  ),
+                PasswordTextField(
+                  passwordTextController: passwordTextController,
                 ),
               ],
             ),
@@ -112,7 +91,7 @@ class LoginModal extends HookConsumerWidget {
                     backgroundColor: LGColors.primary_100,
                     foregroundColor: LGColors.white,
                     disabledBackgroundColor: LGColors.gray_10,
-                    disabledForegroundColor: LGColors.gray_70,
+                    disabledForegroundColor: LGColors.gray_50,
                     animationDuration: const Duration(seconds: 0),
                     textStyle: LGTextStyle.subheading1.white,
                     shape: RoundedRectangleBorder(
@@ -122,16 +101,34 @@ class LoginModal extends HookConsumerWidget {
                   ),
                   onPressed: (isButtonDisabled.value)
                       ? null
-                      : () {
-                          print(
-                            'username: ${usernameTextController.text}, password: ${passwordTextController.text}',
+                      : () async {
+                          final isSuccess = await LGHttp().login(
+                            usernameTextController.text,
+                            passwordTextController.text,
                           );
-                          Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(
-                              builder: (context) => const MainScreen(),
-                            ),
-                            (Route<dynamic> route) => false,
-                          );
+                          if (!isSuccess) {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) =>
+                                  const LGFallbackAlertDialog(
+                                title: 'Could Not Sign In',
+                                content: 'Your email or password is incorrect.',
+                              ),
+                            );
+                            return;
+                          }
+                          final token = await UserPreferences().getToken();
+                          await personalProfileStateNotifier.getUserProfile();
+                          if (token != null) {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => const MainScreen(),
+                              ),
+                              (Route<dynamic> route) => false,
+                            );
+                          } else {
+                            print('nah');
+                          }
                         },
                   child: Text(context.l10n.login_sign_in_button),
                 ),
