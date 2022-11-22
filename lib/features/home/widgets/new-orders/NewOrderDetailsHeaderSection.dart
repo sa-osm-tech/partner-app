@@ -1,10 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
 class NewOrderDetailsHeaderSection extends StatelessWidget {
-  const NewOrderDetailsHeaderSection({super.key});
+  final String customerName;
+  final String orderId;
+  final int price;
+  final String startProvince;
+  final String destinationProvince;
+  final String vehicleType;
+  final DateTime startTime;
+  final int weight;
+
+  const NewOrderDetailsHeaderSection({
+    super.key,
+    required this.customerName,
+    required this.orderId,
+    required this.price,
+    required this.startProvince,
+    required this.destinationProvince,
+    required this.vehicleType,
+    required this.startTime,
+    required this.weight,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -64,14 +84,14 @@ class NewOrderDetailsHeaderSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'โอสถกรีฑา จำกัด',
+                      customerName,
                       style: LGTextStyle.h2.black,
                     ),
                     const SizedBox(
                       height: 4,
                     ),
                     Text(
-                      'L4-023959-001',
+                      orderId,
                       style: LGTextStyle.p4.secondary_50,
                     )
                   ],
@@ -87,7 +107,7 @@ class NewOrderDetailsHeaderSection extends StatelessWidget {
                   color: LGColors.primary_100,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Text('50,000 ฿', style: LGTextStyle.p1.white),
+                child: Text('$price ฿', style: LGTextStyle.p1.white),
               ),
             ],
           ),
@@ -103,7 +123,7 @@ class NewOrderDetailsHeaderSection extends StatelessWidget {
                   size: 20,
                   color: LGColors.gray_50,
                 ),
-                'Bangkok - Samutprakan',
+                '$startProvince - $destinationProvince',
               ),
               orderInfo(
                 const FaIcon(
@@ -111,7 +131,7 @@ class NewOrderDetailsHeaderSection extends StatelessWidget {
                   size: 20,
                   color: LGColors.gray_50,
                 ),
-                'รถเทรลเลอร์พื้นเรียบ',
+                vehicleType,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,7 +142,9 @@ class NewOrderDetailsHeaderSection extends StatelessWidget {
                       size: 20,
                       color: LGColors.gray_50,
                     ),
-                    '2 Oct 2022 12:00',
+                    DateFormat('dd/MM/yyyy HH:mm', 'th')
+                        .format(startTime)
+                        .toString(),
                   ),
                   orderInfoMinWidth(
                     const FaIcon(
@@ -130,7 +152,7 @@ class NewOrderDetailsHeaderSection extends StatelessWidget {
                       size: 20,
                       color: LGColors.gray_50,
                     ),
-                    '500 kg',
+                    '$weight kg',
                   ),
                 ],
               )

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:logerex_partner/features/home/models/employee-mgmt/CreateEmployeeModel.dart';
 import 'package:logerex_partner/features/home/models/employee-mgmt/EmployeeModel.dart';
+import 'package:logerex_partner/features/home/models/new-order/OrderModel.dart';
 import 'package:logerex_partner/features/login/models/LoginModel.dart';
 import 'package:logerex_partner/features/more-settings/models/personal-profile/PersonalProfileModel.dart';
 import 'package:logerex_partner/preferences/UserPreferences.dart';
@@ -154,6 +155,25 @@ class LGHttp {
       );
       final jsonResponse = CreateEmployeeModel.fromJson(response.data['data']);
       return jsonResponse;
+    } on DioError catch (e) {
+      // print(e.response?.data);
+      // return false;
+      rethrow;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<OrderModel>> getOrderPool() async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.get(
+        '${LGEndpoints.orderPath}/orders/all',
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
+      final data = List<dynamic>.from(response.data['data']['orders']);
+      final result = data.map((e) => OrderModel.fromJson(e)).toList();
+      return result;
     } on DioError catch (e) {
       // print(e.response?.data);
       // return false;

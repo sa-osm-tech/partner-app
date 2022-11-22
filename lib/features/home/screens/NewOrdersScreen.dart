@@ -21,10 +21,6 @@ class NewOrdersScreen extends HookConsumerWidget {
           child: Column(
             children: const [
               NewOrderList(),
-              NewOrderList(),
-              NewOrderList(),
-              NewOrderList(),
-              NewOrderList(),
             ],
           ),
         ),
