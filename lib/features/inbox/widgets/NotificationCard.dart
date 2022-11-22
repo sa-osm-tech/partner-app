@@ -64,6 +64,19 @@ class NotificationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String switchTitle() {
+      switch (title) {
+        case 'new_order_assigned':
+          return 'New Order Assigned';
+        case 'new_order_accepted':
+          return 'New Order Accepted';
+        case 'order_success':
+          return 'Order Successful';
+        default:
+          return '-';
+      }
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 20,
@@ -80,12 +93,6 @@ class NotificationCard extends StatelessWidget {
                 child: Stack(
                   children: [
                     Center(child: icon),
-                    if (!isRead)
-                      Positioned(
-                        top: 0,
-                        right: 0,
-                        child: unreadCircle,
-                      ),
                   ],
                 ),
               ),
@@ -99,14 +106,14 @@ class NotificationCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      switchTitle(),
                       style: isRead
                           ? LGTextStyle.p1.gray_70
                           : LGTextStyle.subheading1.black,
                     ),
                     const SizedBox(height: 6),
                     Text(
-                      body,
+                      'Order Id: $body',
                       style: LGTextStyle.p3.gray_50,
                     ),
                   ],

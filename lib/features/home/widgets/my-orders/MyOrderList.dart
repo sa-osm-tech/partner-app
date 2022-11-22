@@ -24,21 +24,18 @@ class MyOrderList extends HookConsumerWidget {
       () {
         switch (type) {
           case 'Not Started':
-            print('not started');
             stateNotifier.setNotStartedOrders(
               personalProfileState.profile!.id!,
               personalProfileState.profile!.role!,
             );
             break;
           case 'On Going':
-            print('on going');
             stateNotifier.setOngoingOrders(
               personalProfileState.profile!.id!,
               personalProfileState.profile!.role!,
             );
             break;
           case 'Success':
-            print('success');
             stateNotifier.setSuccesssOrders(
               personalProfileState.profile!.id!,
               personalProfileState.profile!.role!,

@@ -9,4 +9,5 @@ class LGEndpoints {
 
   static const String acctMgmtPath = '/acct-mgmt';
   static const String orderPath = '/order';
+  static const String notificationPath = '/notification';
 }
