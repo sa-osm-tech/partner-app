@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:logerex_partner/features/home/models/employee-mgmt/CreateEmployeeModel.dart';
 import 'package:logerex_partner/features/home/models/employee-mgmt/EmployeeModel.dart';
+import 'package:logerex_partner/features/home/models/new-order/OrderModel.dart';
 import 'package:logerex_partner/features/login/models/LoginModel.dart';
 import 'package:logerex_partner/features/more-settings/models/personal-profile/PersonalProfileModel.dart';
 import 'package:logerex_partner/preferences/UserPreferences.dart';
@@ -160,6 +161,147 @@ class LGHttp {
       rethrow;
     } catch (e) {
       rethrow;
+    }
+  }
+
+  Future<List<OrderModel>> getOrderPool() async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.get(
+        '${LGEndpoints.orderPath}/orders/all',
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
+      final data = List<dynamic>.from(response.data['data']['orders']);
+      final result = data.map((e) => OrderModel.fromJson(e)).toList();
+      return result;
+    } on DioError catch (e) {
+      // print(e.response?.data);
+      // return false;
+      rethrow;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<bool> assignOrder(
+    String orderId,
+    String driverFirstName,
+    String driverId,
+    String driverLastName,
+    String ownerId,
+  ) async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.post(
+        '${LGEndpoints.orderPath}/orders/assign/$orderId',
+        data: {
+          'driver_first_name': driverFirstName,
+          'driver_id': driverId,
+          'driver_last_name': driverLastName,
+          'owner_id': ownerId,
+        },
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
+
+      if (response.data['status']) {
+        return true;
+      }
+      return false;
+    } on DioError catch (e) {
+      // print(e.response?.data);
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  Future<List<OrderModel>> getNotStartedOrder(String id, int role) async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.get(
+        '${LGEndpoints.orderPath}/orders/notstarted',
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+        queryParameters: {
+          'id': id,
+          'role': role.toString(),
+        },
+      );
+      final data = List<dynamic>.from(response.data['data']['orders']);
+      final result = data.map((e) => OrderModel.fromJson(e)).toList();
+      return result;
+    } on DioError catch (e) {
+      // print(e.response?.data);
+      // return false;
+      rethrow;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<OrderModel>> getOngoingOrder(String id, int role) async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.get(
+        '${LGEndpoints.orderPath}/orders/ongoing',
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+        queryParameters: {
+          'id': id,
+          'role': role.toString(),
+        },
+      );
+      final data = List<dynamic>.from(response.data['data']['orders']);
+      final result = data.map((e) => OrderModel.fromJson(e)).toList();
+      return result;
+    } on DioError catch (e) {
+      // print(e.response?.data);
+      // return false;
+      rethrow;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<OrderModel>> getSuccessOrder(String id, int role) async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.get(
+        '${LGEndpoints.orderPath}/orders/success',
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+        queryParameters: {
+          'id': id,
+          'role': role.toString(),
+        },
+      );
+      final data = List<dynamic>.from(response.data['data']['orders']);
+      final result = data.map((e) => OrderModel.fromJson(e)).toList();
+      return result;
+    } on DioError catch (e) {
+      // print(e.response?.data);
+      // return false;
+      rethrow;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<bool> updateOrderStatus(String orderId, String status) async {
+    try {
+      final token = await UserPreferences().getToken();
+      final response = await _dio.put(
+        '${LGEndpoints.orderPath}/orders/$orderId',
+        data: {'status': status},
+        options: Options(headers: {'Authorization': 'Bearer $token'}),
+      );
+
+      if (response.data['status']) {
+        return true;
+      }
+      return false;
+    } on DioError catch (e) {
+      // print(e.response?.data);
+      return false;
+    } catch (e) {
+      return false;
     }
   }
 }

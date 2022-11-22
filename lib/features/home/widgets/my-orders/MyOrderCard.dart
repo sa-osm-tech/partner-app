@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
+import 'package:logerex_partner/features/home/models/new-order/OrderModel.dart';
 import 'package:logerex_partner/features/home/screens/my-orders/OrderDetailsScreen.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
 class MyOrderCard extends StatelessWidget {
-  const MyOrderCard({super.key});
+  final OrderModel order;
+  const MyOrderCard({super.key, required this.order});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +18,14 @@ class MyOrderCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const OrderDetailsScreen(),
+              builder: (context) => OrderDetailsScreen(
+                order: order,
+              ),
             ),
           );
         },
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.85,
+          width: MediaQuery.of(context).size.width,
           height: 100,
           padding: const EdgeInsets.all(10),
           child: Row(
@@ -66,7 +71,7 @@ class MyOrderCard extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            'This client has a very long name that it cannot fits',
+                            order.customer_name,
                             style: LGTextStyle.h5.secondary_100,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -81,7 +86,7 @@ class MyOrderCard extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Text(
-                            '50,000 ฿',
+                            '${order.price} ฿',
                             style: LGTextStyle.p3.white,
                           ),
                         )
@@ -104,7 +109,7 @@ class MyOrderCard extends StatelessWidget {
                         ),
                         Expanded(
                           child: Text(
-                            'Bangkok - Samutprakan with a long text behind it',
+                            '${order.start_province} - ${order.destination_province}',
                             style: LGTextStyle.p4.gray_50,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -130,7 +135,7 @@ class MyOrderCard extends StatelessWidget {
                         ),
                         Expanded(
                           child: Text(
-                            'Bangkok - Samutprakan with a long text behind it',
+                            order.vehicle_type,
                             style: LGTextStyle.p4.gray_50,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -158,7 +163,9 @@ class MyOrderCard extends StatelessWidget {
                             ),
                             // Expanded(
                             Text(
-                              '02/10/2022 12:00',
+                              DateFormat('dd/MM/yyyy HH:mm', 'th')
+                                  .format(order.start_time!)
+                                  .toString(),
                               style: LGTextStyle.p4.gray_50,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -182,7 +189,7 @@ class MyOrderCard extends StatelessWidget {
                             ),
                             // Expanded(
                             Text(
-                              '500 kg',
+                              '${order.weight} kg',
                               style: LGTextStyle.p4.gray_50,
                               overflow: TextOverflow.ellipsis,
                             ),

@@ -1,22 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logerex_partner/features/home/models/employee-mgmt/EmployeeModel.dart';
+import 'package:logerex_partner/features/home/states/new-orders/NewOrderState.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
-class NewOrderDriverCard extends StatelessWidget {
-  const NewOrderDriverCard({super.key});
+class NewOrderDriverCard extends HookConsumerWidget {
+  final EmployeeModel employee;
+  const NewOrderDriverCard({super.key, required this.employee});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final stateNotifier = ref.watch(newOrderStateNotifierProvider.notifier);
+    final state = ref.watch(newOrderStateNotifierProvider);
+    Border? setBorder() {
+      if (state.toBeAssignedDriver == null) {
+        return null;
+      }
+      if (state.toBeAssignedDriver!.id != employee.id) {
+        return null;
+      }
+      return Border.all(color: LGColors.primary_100);
+    }
+
     return Card(
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          stateNotifier.setToBeAssignedDriver(employee);
+        },
         child: Container(
           padding: const EdgeInsets.all(10),
           width: MediaQuery.of(context).size.width * 0.85,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-          ),
+              borderRadius: BorderRadius.circular(5), border: setBorder()),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -57,17 +74,17 @@ class NewOrderDriverCard extends StatelessWidget {
                         ),
                         const SizedBox(height: 14),
                         Text(
-                          'Makkins Li',
+                          '${employee.first_name} ${employee.last_name}',
                           style: LGTextStyle.p3.black,
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          'makkinsli@gmail.com',
+                          employee.email,
                           style: LGTextStyle.p3.secondary_50,
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          '(+66) 85-555-5555',
+                          '(+66) ${employee.phone_number.substring(1)}',
                           style: LGTextStyle.p3.secondary_50,
                         ),
                       ],

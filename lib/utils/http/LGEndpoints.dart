@@ -8,4 +8,5 @@ class LGEndpoints {
   static const int connectionTimeout = 3000;
 
   static const String acctMgmtPath = '/acct-mgmt';
+  static const String orderPath = '/order';
 }

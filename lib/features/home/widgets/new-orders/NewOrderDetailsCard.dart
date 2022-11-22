@@ -2,7 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
 class NewOrderDetailsCard extends StatelessWidget {
-  const NewOrderDetailsCard({super.key});
+  final String customerPhoneNumber;
+  final String startAddress;
+  final String destinationAddress;
+  final String details;
+  const NewOrderDetailsCard({
+    super.key,
+    required this.customerPhoneNumber,
+    required this.startAddress,
+    required this.destinationAddress,
+    required this.details,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,18 +42,18 @@ class NewOrderDetailsCard extends StatelessWidget {
       child: Wrap(
         runSpacing: 15,
         children: [
-          orderInfo('Phone', '(+66) 95-555-5555'),
+          orderInfo('Phone', '(+66) ${customerPhoneNumber.substring(1)}'),
           orderInfo(
             'From',
-            'ซอย หม่อมแผ้ว 3 แขวง สามเสนใน เขตพญาไท กรุงเทพมหานคร 10400',
+            startAddress,
           ),
           orderInfo(
             'To',
-            'หมู่ที่ 8 123 ถนน ศรีนครินทร์ ตำบล บางเมือง อำเภอเมืองสมุทรปราการ สมุทรปราการ 10270',
+            destinationAddress,
           ),
           orderInfo(
             'Details',
-            'สินค้าชนิดแห้ง แตกหักได้ยาก เก็บในอุณหภูมิห้อง 20-27 เซลเซียส จำเป็นต้องใช้รถบรรทุกควบคุมอุณหภูมิ สินค้ามีทั้งหมด 5 ลัง แต่ละลังมีขนาด 1m x 1m x 1m',
+            details,
           ),
         ],
       ),

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
+import 'package:logerex_partner/features/home/models/new-order/OrderModel.dart';
 import 'package:logerex_partner/features/home/screens/new-orders/NewOrderDetailsScreen.dart';
 import 'package:logerex_partner/themes/LGColors.dart';
 import 'package:logerex_partner/themes/LGTextStyle.dart';
 
 class NewOrderCard extends StatelessWidget {
-  const NewOrderCard({super.key});
+  final OrderModel newOrder;
+  const NewOrderCard({super.key, required this.newOrder});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class NewOrderCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const NewOrderDetailsScreen(),
+              builder: (context) => NewOrderDetailsScreen(newOrder: newOrder),
             ),
           );
         },
@@ -57,7 +60,7 @@ class NewOrderCard extends StatelessWidget {
                           horizontal: 6,
                         ),
                         child: Text(
-                          '50,000 ฿',
+                          '${newOrder.price} ฿',
                           style: LGTextStyle.p4.white,
                         ),
                       ),
@@ -71,7 +74,7 @@ class NewOrderCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'โอสถกรีฑา จำกัด',
+                      newOrder.customer_name,
                       style: LGTextStyle.subheading2.black,
                     ),
                     const SizedBox(
@@ -113,7 +116,7 @@ class NewOrderCard extends StatelessWidget {
                         ),
                         Expanded(
                           child: Text(
-                            'รถเทรลเลอร์พื้นเรียบ',
+                            newOrder.vehicle_type,
                             style: LGTextStyle.p5.secondary_50,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -138,7 +141,9 @@ class NewOrderCard extends StatelessWidget {
                           width: 3,
                         ),
                         Text(
-                          '02/10/2022 12:00',
+                          DateFormat('dd/MM/yyyy HH:mm', 'th')
+                              .format(newOrder.start_time!)
+                              .toString(),
                           style: LGTextStyle.p5.secondary_50,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -159,7 +164,7 @@ class NewOrderCard extends StatelessWidget {
                         ),
                         Expanded(
                           child: Text(
-                            '500 kg',
+                            '${newOrder.weight} kg',
                             style: LGTextStyle.p5.secondary_50,
                             overflow: TextOverflow.ellipsis,
                           ),
